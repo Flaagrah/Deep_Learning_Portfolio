@@ -1,0 +1,67 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002011.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 14 { "PASbus" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASperson" "PASpersonDifficult" "PASpersonDifficult" "PASpersonDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbus")
+Original label for object 1 "PASbus" : "PASbus"
+Bounding box for object 1 "PASbus" (Xmin, Ymin) - (Xmax, Ymax) : (1, 47) - (316, 259)
+
+# Details for object 2 ("PASpersonDifficult")
+Original label for object 2 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 2 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (300, 170) - (307, 192)
+
+# Details for object 3 ("PASpersonDifficult")
+Original label for object 3 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 3 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (306, 173) - (313, 194)
+
+# Details for object 4 ("PASpersonDifficult")
+Original label for object 4 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 4 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (312, 176) - (320, 198)
+
+# Details for object 5 ("PASpersonDifficult")
+Original label for object 5 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 5 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (319, 174) - (327, 193)
+
+# Details for object 6 ("PASpersonDifficult")
+Original label for object 6 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 6 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (330, 172) - (338, 193)
+
+# Details for object 7 ("PASpersonDifficult")
+Original label for object 7 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 7 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (337, 171) - (345, 191)
+
+# Details for object 8 ("PASpersonDifficult")
+Original label for object 8 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 8 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (479, 167) - (491, 206)
+
+# Details for object 9 ("PASpersonDifficult")
+Original label for object 9 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 9 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (466, 170) - (480, 206)
+
+# Details for object 10 ("PASpersonDifficult")
+Original label for object 10 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 10 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (454, 170) - (464, 196)
+
+# Details for object 11 ("PASperson")
+Original label for object 11 "PASperson" : "PASperson"
+Bounding box for object 11 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (444, 169) - (459, 203)
+
+# Details for object 12 ("PASpersonDifficult")
+Original label for object 12 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 12 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (419, 169) - (430, 200)
+
+# Details for object 13 ("PASpersonDifficult")
+Original label for object 13 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 13 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (360, 172) - (376, 199)
+
+# Details for object 14 ("PASpersonDifficult")
+Original label for object 14 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 14 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (354, 170) - (361, 190)

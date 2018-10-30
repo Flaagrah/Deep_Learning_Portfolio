@@ -1,0 +1,51 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000077.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 10 { "PASsheepLeft" "PASsheepLeft" "PASsheep" "PASsheep" "PASsheep" "PASsheep" "PASsheep" "PASsheepTrunc" "PASsheep" "PASdog" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASsheepLeft")
+Original label for object 1 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 1 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (355, 202) - (497, 323)
+
+# Details for object 2 ("PASsheepLeft")
+Original label for object 2 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 2 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (256, 192) - (377, 294)
+
+# Details for object 3 ("PASsheep")
+Original label for object 3 "PASsheep" : "PASsheep"
+Bounding box for object 3 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (159, 188) - (278, 269)
+
+# Details for object 4 ("PASsheep")
+Original label for object 4 "PASsheep" : "PASsheep"
+Bounding box for object 4 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (92, 210) - (148, 295)
+
+# Details for object 5 ("PASsheep")
+Original label for object 5 "PASsheep" : "PASsheep"
+Bounding box for object 5 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (43, 213) - (105, 301)
+
+# Details for object 6 ("PASsheep")
+Original label for object 6 "PASsheep" : "PASsheep"
+Bounding box for object 6 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (155, 300) - (302, 372)
+
+# Details for object 7 ("PASsheep")
+Original label for object 7 "PASsheep" : "PASsheep"
+Bounding box for object 7 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (288, 300) - (413, 371)
+
+# Details for object 8 ("PASsheepTrunc")
+Original label for object 8 "PASsheepTrunc" : "PASsheepTrunc"
+Bounding box for object 8 "PASsheepTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (359, 321) - (499, 375)
+
+# Details for object 9 ("PASsheep")
+Original label for object 9 "PASsheep" : "PASsheep"
+Bounding box for object 9 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (68, 296) - (165, 373)
+
+# Details for object 10 ("PASdog")
+Original label for object 10 "PASdog" : "PASdog"
+Bounding box for object 10 "PASdog" (Xmin, Ymin) - (Xmax, Ymax) : (208, 127) - (359, 204)

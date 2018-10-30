@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001554.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASbicycle" "PASbicycle" "PAScarTrunc" "PAScarTrunc" "PAScarTruncDifficult" "PAScarTrunc" "PAScarTrunc" "PAScarTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbicycle")
+Original label for object 1 "PASbicycle" : "PASbicycle"
+Bounding box for object 1 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (180, 68) - (374, 318)
+
+# Details for object 2 ("PASbicycle")
+Original label for object 2 "PASbicycle" : "PASbicycle"
+Bounding box for object 2 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (79, 33) - (217, 346)
+
+# Details for object 3 ("PAScarTrunc")
+Original label for object 3 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 3 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (396, 2) - (500, 47)
+
+# Details for object 4 ("PAScarTrunc")
+Original label for object 4 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 4 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (298, 2) - (405, 32)
+
+# Details for object 5 ("PAScarTruncDifficult")
+Original label for object 5 "PAScarTruncDifficult" : "PAScarTruncDifficult"
+Bounding box for object 5 "PAScarTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (234, 2) - (301, 25)
+
+# Details for object 6 ("PAScarTrunc")
+Original label for object 6 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 6 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (148, 1) - (248, 47)
+
+# Details for object 7 ("PAScarTrunc")
+Original label for object 7 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 7 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (40, 2) - (133, 68)
+
+# Details for object 8 ("PAScarTruncDifficult")
+Original label for object 8 "PAScarTruncDifficult" : "PAScarTruncDifficult"
+Bounding box for object 8 "PAScarTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (22, 3) - (55, 51)

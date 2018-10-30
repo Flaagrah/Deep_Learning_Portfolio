@@ -1,0 +1,31 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002909.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 5 { "PASsheepLeft" "PASsheep" "PASsheep" "PASsheep" "PASsheepTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASsheepLeft")
+Original label for object 1 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 1 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (250, 168) - (291, 200)
+
+# Details for object 2 ("PASsheep")
+Original label for object 2 "PASsheep" : "PASsheep"
+Bounding box for object 2 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (135, 199) - (174, 252)
+
+# Details for object 3 ("PASsheep")
+Original label for object 3 "PASsheep" : "PASsheep"
+Bounding box for object 3 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (47, 165) - (82, 205)
+
+# Details for object 4 ("PASsheep")
+Original label for object 4 "PASsheep" : "PASsheep"
+Bounding box for object 4 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (291, 226) - (357, 287)
+
+# Details for object 5 ("PASsheepTruncDifficult")
+Original label for object 5 "PASsheepTruncDifficult" : "PASsheepTruncDifficult"
+Bounding box for object 5 "PASsheepTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (2, 156) - (26, 192)

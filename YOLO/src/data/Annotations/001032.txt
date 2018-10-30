@@ -1,0 +1,51 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001032.png"
+Image size (X x Y x C) : 500 x 334 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 10 { "PAScarTruncDifficult" "PAScarLeftTrunc" "PAScarFrontal" "PAScarFrontal" "PAScarFrontalTrunc" "PAScarFrontalDifficult" "PAScarRear" "PAScarRear" "PAScarRearTrunc" "PASbusRearDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScarTruncDifficult")
+Original label for object 1 "PAScarTruncDifficult" : "PAScarTruncDifficult"
+Bounding box for object 1 "PAScarTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (422, 226) - (500, 334)
+
+# Details for object 2 ("PAScarLeftTrunc")
+Original label for object 2 "PAScarLeftTrunc" : "PAScarLeftTrunc"
+Bounding box for object 2 "PAScarLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (418, 137) - (500, 202)
+
+# Details for object 3 ("PAScarFrontal")
+Original label for object 3 "PAScarFrontal" : "PAScarFrontal"
+Bounding box for object 3 "PAScarFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (253, 125) - (348, 205)
+
+# Details for object 4 ("PAScarFrontal")
+Original label for object 4 "PAScarFrontal" : "PAScarFrontal"
+Bounding box for object 4 "PAScarFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (218, 92) - (263, 141)
+
+# Details for object 5 ("PAScarFrontalTrunc")
+Original label for object 5 "PAScarFrontalTrunc" : "PAScarFrontalTrunc"
+Bounding box for object 5 "PAScarFrontalTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (208, 109) - (220, 126)
+
+# Details for object 6 ("PAScarFrontalDifficult")
+Original label for object 6 "PAScarFrontalDifficult" : "PAScarFrontalDifficult"
+Bounding box for object 6 "PAScarFrontalDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (198, 92) - (210, 105)
+
+# Details for object 7 ("PAScarRear")
+Original label for object 7 "PAScarRear" : "PAScarRear"
+Bounding box for object 7 "PAScarRear" (Xmin, Ymin) - (Xmax, Ymax) : (153, 109) - (175, 126)
+
+# Details for object 8 ("PAScarRear")
+Original label for object 8 "PAScarRear" : "PAScarRear"
+Bounding box for object 8 "PAScarRear" (Xmin, Ymin) - (Xmax, Ymax) : (89, 86) - (150, 155)
+
+# Details for object 9 ("PAScarRearTrunc")
+Original label for object 9 "PAScarRearTrunc" : "PAScarRearTrunc"
+Bounding box for object 9 "PAScarRearTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (2, 151) - (82, 304)
+
+# Details for object 10 ("PASbusRearDifficult")
+Original label for object 10 "PASbusRearDifficult" : "PASbusRearDifficult"
+Bounding box for object 10 "PASbusRearDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (157, 80) - (181, 115)

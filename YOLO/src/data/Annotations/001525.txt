@@ -1,0 +1,27 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001525.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 4 { "PASpersonRearTrunc" "PASpersonLeft" "PASperson" "PASperson" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASpersonRearTrunc")
+Original label for object 1 "PASpersonRearTrunc" : "PASpersonRearTrunc"
+Bounding box for object 1 "PASpersonRearTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (199, 86) - (387, 373)
+
+# Details for object 2 ("PASpersonLeft")
+Original label for object 2 "PASpersonLeft" : "PASpersonLeft"
+Bounding box for object 2 "PASpersonLeft" (Xmin, Ymin) - (Xmax, Ymax) : (385, 88) - (454, 293)
+
+# Details for object 3 ("PASperson")
+Original label for object 3 "PASperson" : "PASperson"
+Bounding box for object 3 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (318, 89) - (380, 265)
+
+# Details for object 4 ("PASperson")
+Original label for object 4 "PASperson" : "PASperson"
+Bounding box for object 4 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (380, 110) - (413, 251)

@@ -1,0 +1,35 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/004423.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 6 { "PAScowTrunc" "PAScowFrontal" "PAScowTruncDifficult" "PAScowLeft" "PAScowRightDifficult" "PAScowLeft" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScowTrunc")
+Original label for object 1 "PAScowTrunc" : "PAScowTrunc"
+Bounding box for object 1 "PAScowTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (451, 141) - (500, 201)
+
+# Details for object 2 ("PAScowFrontal")
+Original label for object 2 "PAScowFrontal" : "PAScowFrontal"
+Bounding box for object 2 "PAScowFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (359, 118) - (400, 180)
+
+# Details for object 3 ("PAScowTruncDifficult")
+Original label for object 3 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 3 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (1, 124) - (12, 184)
+
+# Details for object 4 ("PAScowLeft")
+Original label for object 4 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 4 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (58, 118) - (120, 155)
+
+# Details for object 5 ("PAScowRightDifficult")
+Original label for object 5 "PAScowRightDifficult" : "PAScowRightDifficult"
+Bounding box for object 5 "PAScowRightDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (153, 159) - (311, 274)
+
+# Details for object 6 ("PAScowLeft")
+Original label for object 6 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 6 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (97, 110) - (367, 279)

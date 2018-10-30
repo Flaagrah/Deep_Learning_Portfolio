@@ -1,0 +1,23 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/003420.png"
+Image size (X x Y x C) : 640 x 480 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 3 { "PAScowDifficult" "PAScowLeft" "PAScowDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScowDifficult")
+Original label for object 1 "PAScowDifficult" : "PAScowDifficult"
+Bounding box for object 1 "PAScowDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (372, 225) - (443, 295)
+
+# Details for object 2 ("PAScowLeft")
+Original label for object 2 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 2 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (280, 216) - (385, 274)
+
+# Details for object 3 ("PAScowDifficult")
+Original label for object 3 "PAScowDifficult" : "PAScowDifficult"
+Bounding box for object 3 "PAScowDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (414, 214) - (487, 255)

@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002361.png"
+Image size (X x Y x C) : 500 x 321 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASbus" "PAScarFrontal" "PASbusFrontalDifficult" "PASpersonDifficult" "PASpersonDifficult" "PASpersonLeft" "PASperson" "PAScarTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbus")
+Original label for object 1 "PASbus" : "PASbus"
+Bounding box for object 1 "PASbus" (Xmin, Ymin) - (Xmax, Ymax) : (128, 37) - (406, 295)
+
+# Details for object 2 ("PAScarFrontal")
+Original label for object 2 "PAScarFrontal" : "PAScarFrontal"
+Bounding box for object 2 "PAScarFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (423, 190) - (470, 225)
+
+# Details for object 3 ("PASbusFrontalDifficult")
+Original label for object 3 "PASbusFrontalDifficult" : "PASbusFrontalDifficult"
+Bounding box for object 3 "PASbusFrontalDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (455, 177) - (489, 214)
+
+# Details for object 4 ("PASpersonDifficult")
+Original label for object 4 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 4 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (492, 193) - (500, 221)
+
+# Details for object 5 ("PASpersonDifficult")
+Original label for object 5 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 5 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (479, 190) - (493, 225)
+
+# Details for object 6 ("PASpersonLeft")
+Original label for object 6 "PASpersonLeft" : "PASpersonLeft"
+Bounding box for object 6 "PASpersonLeft" (Xmin, Ymin) - (Xmax, Ymax) : (320, 195) - (356, 305)
+
+# Details for object 7 ("PASperson")
+Original label for object 7 "PASperson" : "PASperson"
+Bounding box for object 7 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (293, 195) - (323, 306)
+
+# Details for object 8 ("PAScarTrunc")
+Original label for object 8 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 8 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (97, 203) - (134, 238)

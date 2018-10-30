@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001176.png"
+Image size (X x Y x C) : 640 x 480 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PAScow" "PAScow" "PAScowLeft" "PAScowLeftTruncDifficult" "PAScowLeftTruncDifficult" "PAScowLeft" "PAScowDifficult" "PAScowLeft" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScow")
+Original label for object 1 "PAScow" : "PAScow"
+Bounding box for object 1 "PAScow" (Xmin, Ymin) - (Xmax, Ymax) : (353, 295) - (439, 438)
+
+# Details for object 2 ("PAScow")
+Original label for object 2 "PAScow" : "PAScow"
+Bounding box for object 2 "PAScow" (Xmin, Ymin) - (Xmax, Ymax) : (361, 242) - (489, 362)
+
+# Details for object 3 ("PAScowLeft")
+Original label for object 3 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 3 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (394, 102) - (513, 194)
+
+# Details for object 4 ("PAScowLeftTruncDifficult")
+Original label for object 4 "PAScowLeftTruncDifficult" : "PAScowLeftTruncDifficult"
+Bounding box for object 4 "PAScowLeftTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (415, 91) - (487, 125)
+
+# Details for object 5 ("PAScowLeftTruncDifficult")
+Original label for object 5 "PAScowLeftTruncDifficult" : "PAScowLeftTruncDifficult"
+Bounding box for object 5 "PAScowLeftTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (175, 103) - (271, 153)
+
+# Details for object 6 ("PAScowLeft")
+Original label for object 6 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 6 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (123, 126) - (248, 222)
+
+# Details for object 7 ("PAScowDifficult")
+Original label for object 7 "PAScowDifficult" : "PAScowDifficult"
+Bounding box for object 7 "PAScowDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (229, 136) - (308, 229)
+
+# Details for object 8 ("PAScowLeft")
+Original label for object 8 "PAScowLeft" : "PAScowLeft"
+Bounding box for object 8 "PAScowLeft" (Xmin, Ymin) - (Xmax, Ymax) : (37, 214) - (278, 369)

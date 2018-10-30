@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000179.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASsheepLeft" "PASsheepLeft" "PASsheepLeft" "PASsheepRear" "PASsheepRearDifficult" "PASsheepRear" "PASsheepRear" "PASsheepRearDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASsheepLeft")
+Original label for object 1 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 1 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (461, 162) - (486, 187)
+
+# Details for object 2 ("PASsheepLeft")
+Original label for object 2 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 2 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (412, 166) - (445, 192)
+
+# Details for object 3 ("PASsheepLeft")
+Original label for object 3 "PASsheepLeft" : "PASsheepLeft"
+Bounding box for object 3 "PASsheepLeft" (Xmin, Ymin) - (Xmax, Ymax) : (374, 160) - (404, 187)
+
+# Details for object 4 ("PASsheepRear")
+Original label for object 4 "PASsheepRear" : "PASsheepRear"
+Bounding box for object 4 "PASsheepRear" (Xmin, Ymin) - (Xmax, Ymax) : (266, 180) - (289, 220)
+
+# Details for object 5 ("PASsheepRearDifficult")
+Original label for object 5 "PASsheepRearDifficult" : "PASsheepRearDifficult"
+Bounding box for object 5 "PASsheepRearDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (219, 181) - (235, 221)
+
+# Details for object 6 ("PASsheepRear")
+Original label for object 6 "PASsheepRear" : "PASsheepRear"
+Bounding box for object 6 "PASsheepRear" (Xmin, Ymin) - (Xmax, Ymax) : (185, 184) - (213, 217)
+
+# Details for object 7 ("PASsheepRear")
+Original label for object 7 "PASsheepRear" : "PASsheepRear"
+Bounding box for object 7 "PASsheepRear" (Xmin, Ymin) - (Xmax, Ymax) : (135, 188) - (158, 232)
+
+# Details for object 8 ("PASsheepRearDifficult")
+Original label for object 8 "PASsheepRearDifficult" : "PASsheepRearDifficult"
+Bounding box for object 8 "PASsheepRearDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (17, 189) - (47, 234)

@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/004710.png"
+Image size (X x Y x C) : 500 x 333 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PAScar" "PAScar" "PAScarTrunc" "PAScarTrunc" "PASperson" "PASperson" "PASpersonTruncDifficult" "PASpersonTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScar")
+Original label for object 1 "PAScar" : "PAScar"
+Bounding box for object 1 "PAScar" (Xmin, Ymin) - (Xmax, Ymax) : (56, 18) - (471, 295)
+
+# Details for object 2 ("PAScar")
+Original label for object 2 "PAScar" : "PAScar"
+Bounding box for object 2 "PAScar" (Xmin, Ymin) - (Xmax, Ymax) : (239, 18) - (454, 98)
+
+# Details for object 3 ("PAScarTrunc")
+Original label for object 3 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 3 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (409, 1) - (500, 51)
+
+# Details for object 4 ("PAScarTrunc")
+Original label for object 4 "PAScarTrunc" : "PAScarTrunc"
+Bounding box for object 4 "PAScarTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (429, 23) - (500, 135)
+
+# Details for object 5 ("PASperson")
+Original label for object 5 "PASperson" : "PASperson"
+Bounding box for object 5 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (13, 29) - (48, 90)
+
+# Details for object 6 ("PASperson")
+Original label for object 6 "PASperson" : "PASperson"
+Bounding box for object 6 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (47, 37) - (75, 94)
+
+# Details for object 7 ("PASpersonTruncDifficult")
+Original label for object 7 "PASpersonTruncDifficult" : "PASpersonTruncDifficult"
+Bounding box for object 7 "PASpersonTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (67, 34) - (86, 55)
+
+# Details for object 8 ("PASpersonTruncDifficult")
+Original label for object 8 "PASpersonTruncDifficult" : "PASpersonTruncDifficult"
+Bounding box for object 8 "PASpersonTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (33, 15) - (57, 60)

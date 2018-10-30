@@ -1,0 +1,35 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002981.png"
+Image size (X x Y x C) : 500 x 333 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 6 { "PAScowLeftTrunc" "PAScowLeftTrunc" "PAScowTrunc" "PAScowRightTrunc" "PAScowRightTrunc" "PAScowRightTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScowLeftTrunc")
+Original label for object 1 "PAScowLeftTrunc" : "PAScowLeftTrunc"
+Bounding box for object 1 "PAScowLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (402, 107) - (500, 263)
+
+# Details for object 2 ("PAScowLeftTrunc")
+Original label for object 2 "PAScowLeftTrunc" : "PAScowLeftTrunc"
+Bounding box for object 2 "PAScowLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (332, 106) - (421, 185)
+
+# Details for object 3 ("PAScowTrunc")
+Original label for object 3 "PAScowTrunc" : "PAScowTrunc"
+Bounding box for object 3 "PAScowTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (252, 109) - (296, 156)
+
+# Details for object 4 ("PAScowRightTrunc")
+Original label for object 4 "PAScowRightTrunc" : "PAScowRightTrunc"
+Bounding box for object 4 "PAScowRightTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (150, 105) - (265, 180)
+
+# Details for object 5 ("PAScowRightTrunc")
+Original label for object 5 "PAScowRightTrunc" : "PAScowRightTrunc"
+Bounding box for object 5 "PAScowRightTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (1, 83) - (164, 172)
+
+# Details for object 6 ("PAScowRightTrunc")
+Original label for object 6 "PAScowRightTrunc" : "PAScowRightTrunc"
+Bounding box for object 6 "PAScowRightTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (2, 107) - (111, 199)

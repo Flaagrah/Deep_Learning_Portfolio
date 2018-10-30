@@ -1,0 +1,39 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/004830.png"
+Image size (X x Y x C) : 500 x 374 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 7 { "PASmotorbikeTruncDifficult" "PASpersonRight" "PASpersonDifficult" "PASmotorbikeTrunc" "PASmotorbikeTruncDifficult" "PASmotorbikeTrunc" "PASmotorbike" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASmotorbikeTruncDifficult")
+Original label for object 1 "PASmotorbikeTruncDifficult" : "PASmotorbikeTruncDifficult"
+Bounding box for object 1 "PASmotorbikeTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (397, 91) - (500, 374)
+
+# Details for object 2 ("PASpersonRight")
+Original label for object 2 "PASpersonRight" : "PASpersonRight"
+Bounding box for object 2 "PASpersonRight" (Xmin, Ymin) - (Xmax, Ymax) : (1, 57) - (18, 120)
+
+# Details for object 3 ("PASpersonDifficult")
+Original label for object 3 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 3 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (2, 49) - (15, 71)
+
+# Details for object 4 ("PASmotorbikeTrunc")
+Original label for object 4 "PASmotorbikeTrunc" : "PASmotorbikeTrunc"
+Bounding box for object 4 "PASmotorbikeTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (2, 72) - (81, 200)
+
+# Details for object 5 ("PASmotorbikeTruncDifficult")
+Original label for object 5 "PASmotorbikeTruncDifficult" : "PASmotorbikeTruncDifficult"
+Bounding box for object 5 "PASmotorbikeTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (39, 70) - (87, 225)
+
+# Details for object 6 ("PASmotorbikeTrunc")
+Original label for object 6 "PASmotorbikeTrunc" : "PASmotorbikeTrunc"
+Bounding box for object 6 "PASmotorbikeTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (46, 65) - (260, 299)
+
+# Details for object 7 ("PASmotorbike")
+Original label for object 7 "PASmotorbike" : "PASmotorbike"
+Bounding box for object 7 "PASmotorbike" (Xmin, Ymin) - (Xmax, Ymax) : (51, 98) - (395, 324)

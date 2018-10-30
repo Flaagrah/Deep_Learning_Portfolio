@@ -1,0 +1,47 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001631.png"
+Image size (X x Y x C) : 640 x 480 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 9 { "PASsheep" "PASsheep" "PASsheepRight" "PASsheepRight" "PASsheep" "PASsheep" "PASsheepRearDifficult" "PASsheepDifficult" "PASsheepLeftTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASsheep")
+Original label for object 1 "PASsheep" : "PASsheep"
+Bounding box for object 1 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (532, 252) - (601, 296)
+
+# Details for object 2 ("PASsheep")
+Original label for object 2 "PASsheep" : "PASsheep"
+Bounding box for object 2 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (449, 257) - (517, 300)
+
+# Details for object 3 ("PASsheepRight")
+Original label for object 3 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 3 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (171, 241) - (315, 300)
+
+# Details for object 4 ("PASsheepRight")
+Original label for object 4 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 4 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (181, 290) - (287, 363)
+
+# Details for object 5 ("PASsheep")
+Original label for object 5 "PASsheep" : "PASsheep"
+Bounding box for object 5 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (54, 191) - (132, 271)
+
+# Details for object 6 ("PASsheep")
+Original label for object 6 "PASsheep" : "PASsheep"
+Bounding box for object 6 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (169, 212) - (218, 258)
+
+# Details for object 7 ("PASsheepRearDifficult")
+Original label for object 7 "PASsheepRearDifficult" : "PASsheepRearDifficult"
+Bounding box for object 7 "PASsheepRearDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (308, 104) - (336, 137)
+
+# Details for object 8 ("PASsheepDifficult")
+Original label for object 8 "PASsheepDifficult" : "PASsheepDifficult"
+Bounding box for object 8 "PASsheepDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (441, 126) - (467, 154)
+
+# Details for object 9 ("PASsheepLeftTruncDifficult")
+Original label for object 9 "PASsheepLeftTruncDifficult" : "PASsheepLeftTruncDifficult"
+Bounding box for object 9 "PASsheepLeftTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (616, 120) - (640, 146)

@@ -1,0 +1,47 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000909.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 9 { "PASsheepRightTruncDifficult" "PASsheepRightDifficult" "PASsheepRight" "PASsheepRight" "PASsheepRight" "PASsheepRightTrunc" "PASsheepRight" "PASsheepRight" "PASsheepRight" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASsheepRightTruncDifficult")
+Original label for object 1 "PASsheepRightTruncDifficult" : "PASsheepRightTruncDifficult"
+Bounding box for object 1 "PASsheepRightTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (473, 155) - (499, 175)
+
+# Details for object 2 ("PASsheepRightDifficult")
+Original label for object 2 "PASsheepRightDifficult" : "PASsheepRightDifficult"
+Bounding box for object 2 "PASsheepRightDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (352, 146) - (392, 167)
+
+# Details for object 3 ("PASsheepRight")
+Original label for object 3 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 3 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (220, 142) - (254, 167)
+
+# Details for object 4 ("PASsheepRight")
+Original label for object 4 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 4 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (178, 140) - (213, 162)
+
+# Details for object 5 ("PASsheepRight")
+Original label for object 5 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 5 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (91, 136) - (128, 157)
+
+# Details for object 6 ("PASsheepRightTrunc")
+Original label for object 6 "PASsheepRightTrunc" : "PASsheepRightTrunc"
+Bounding box for object 6 "PASsheepRightTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (3, 157) - (51, 194)
+
+# Details for object 7 ("PASsheepRight")
+Original label for object 7 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 7 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (60, 163) - (124, 197)
+
+# Details for object 8 ("PASsheepRight")
+Original label for object 8 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 8 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (218, 168) - (282, 210)
+
+# Details for object 9 ("PASsheepRight")
+Original label for object 9 "PASsheepRight" : "PASsheepRight"
+Bounding box for object 9 "PASsheepRight" (Xmin, Ymin) - (Xmax, Ymax) : (323, 192) - (404, 236)

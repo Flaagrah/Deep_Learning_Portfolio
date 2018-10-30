@@ -1,0 +1,35 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001089.png"
+Image size (X x Y x C) : 500 x 333 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 6 { "PAShorseFrontal" "PAShorseFrontal" "PAShorseFrontal" "PASpersonFrontal" "PASpersonFrontal" "PASpersonFrontal" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAShorseFrontal")
+Original label for object 1 "PAShorseFrontal" : "PAShorseFrontal"
+Bounding box for object 1 "PAShorseFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (305, 112) - (418, 323)
+
+# Details for object 2 ("PAShorseFrontal")
+Original label for object 2 "PAShorseFrontal" : "PAShorseFrontal"
+Bounding box for object 2 "PAShorseFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (186, 133) - (266, 320)
+
+# Details for object 3 ("PAShorseFrontal")
+Original label for object 3 "PAShorseFrontal" : "PAShorseFrontal"
+Bounding box for object 3 "PAShorseFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (71, 107) - (141, 319)
+
+# Details for object 4 ("PASpersonFrontal")
+Original label for object 4 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 4 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (304, 75) - (387, 226)
+
+# Details for object 5 ("PASpersonFrontal")
+Original label for object 5 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 5 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (188, 61) - (279, 219)
+
+# Details for object 6 ("PASpersonFrontal")
+Original label for object 6 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 6 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (61, 60) - (152, 224)

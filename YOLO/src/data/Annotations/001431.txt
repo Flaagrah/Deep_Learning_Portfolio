@@ -1,0 +1,35 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001431.png"
+Image size (X x Y x C) : 333 x 500 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 6 { "PASmotorbike" "PASmotorbikeTruncDifficult" "PASmotorbikeRight" "PASmotorbikeRight" "PASmotorbikeRightTruncDifficult" "PASpersonTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASmotorbike")
+Original label for object 1 "PASmotorbike" : "PASmotorbike"
+Bounding box for object 1 "PASmotorbike" (Xmin, Ymin) - (Xmax, Ymax) : (43, 128) - (288, 483)
+
+# Details for object 2 ("PASmotorbikeTruncDifficult")
+Original label for object 2 "PASmotorbikeTruncDifficult" : "PASmotorbikeTruncDifficult"
+Bounding box for object 2 "PASmotorbikeTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (253, 117) - (333, 323)
+
+# Details for object 3 ("PASmotorbikeRight")
+Original label for object 3 "PASmotorbikeRight" : "PASmotorbikeRight"
+Bounding box for object 3 "PASmotorbikeRight" (Xmin, Ymin) - (Xmax, Ymax) : (168, 72) - (292, 163)
+
+# Details for object 4 ("PASmotorbikeRight")
+Original label for object 4 "PASmotorbikeRight" : "PASmotorbikeRight"
+Bounding box for object 4 "PASmotorbikeRight" (Xmin, Ymin) - (Xmax, Ymax) : (29, 79) - (160, 164)
+
+# Details for object 5 ("PASmotorbikeRightTruncDifficult")
+Original label for object 5 "PASmotorbikeRightTruncDifficult" : "PASmotorbikeRightTruncDifficult"
+Bounding box for object 5 "PASmotorbikeRightTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (1, 97) - (26, 166)
+
+# Details for object 6 ("PASpersonTrunc")
+Original label for object 6 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 6 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (15, 49) - (40, 105)

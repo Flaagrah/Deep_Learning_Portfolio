@@ -1,0 +1,51 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000177.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 10 { "PASdogTrunc" "PASdogTrunc" "PASdogTrunc" "PASdogTrunc" "PASdogTruncDifficult" "PASpersonTrunc" "PASpersonTrunc" "PASpersonTrunc" "PASpersonTrunc" "PASpersonTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASdogTrunc")
+Original label for object 1 "PASdogTrunc" : "PASdogTrunc"
+Bounding box for object 1 "PASdogTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (336, 220) - (459, 375)
+
+# Details for object 2 ("PASdogTrunc")
+Original label for object 2 "PASdogTrunc" : "PASdogTrunc"
+Bounding box for object 2 "PASdogTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (295, 210) - (362, 375)
+
+# Details for object 3 ("PASdogTrunc")
+Original label for object 3 "PASdogTrunc" : "PASdogTrunc"
+Bounding box for object 3 "PASdogTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (104, 197) - (320, 375)
+
+# Details for object 4 ("PASdogTrunc")
+Original label for object 4 "PASdogTrunc" : "PASdogTrunc"
+Bounding box for object 4 "PASdogTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (15, 192) - (214, 364)
+
+# Details for object 5 ("PASdogTruncDifficult")
+Original label for object 5 "PASdogTruncDifficult" : "PASdogTruncDifficult"
+Bounding box for object 5 "PASdogTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (197, 147) - (251, 195)
+
+# Details for object 6 ("PASpersonTrunc")
+Original label for object 6 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 6 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (451, 42) - (500, 134)
+
+# Details for object 7 ("PASpersonTrunc")
+Original label for object 7 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 7 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (355, 97) - (500, 282)
+
+# Details for object 8 ("PASpersonTrunc")
+Original label for object 8 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 8 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (252, 89) - (366, 233)
+
+# Details for object 9 ("PASpersonTrunc")
+Original label for object 9 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 9 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (143, 120) - (240, 232)
+
+# Details for object 10 ("PASpersonTrunc")
+Original label for object 10 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 10 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (65, 121) - (160, 223)

@@ -1,0 +1,47 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000856.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 9 { "PASbus" "PASperson" "PASpersonDifficult" "PASpersonTruncDifficult" "PAScar" "PAScar" "PAScarRearTrunc" "PAScarRear" "PASbusFrontal" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbus")
+Original label for object 1 "PASbus" : "PASbus"
+Bounding box for object 1 "PASbus" (Xmin, Ymin) - (Xmax, Ymax) : (159, 85) - (343, 276)
+
+# Details for object 2 ("PASperson")
+Original label for object 2 "PASperson" : "PASperson"
+Bounding box for object 2 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (391, 192) - (416, 252)
+
+# Details for object 3 ("PASpersonDifficult")
+Original label for object 3 "PASpersonDifficult" : "PASpersonDifficult"
+Bounding box for object 3 "PASpersonDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (351, 169) - (365, 209)
+
+# Details for object 4 ("PASpersonTruncDifficult")
+Original label for object 4 "PASpersonTruncDifficult" : "PASpersonTruncDifficult"
+Bounding box for object 4 "PASpersonTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (343, 164) - (357, 207)
+
+# Details for object 5 ("PAScar")
+Original label for object 5 "PAScar" : "PAScar"
+Bounding box for object 5 "PAScar" (Xmin, Ymin) - (Xmax, Ymax) : (113, 147) - (158, 187)
+
+# Details for object 6 ("PAScar")
+Original label for object 6 "PAScar" : "PAScar"
+Bounding box for object 6 "PAScar" (Xmin, Ymin) - (Xmax, Ymax) : (94, 136) - (121, 165)
+
+# Details for object 7 ("PAScarRearTrunc")
+Original label for object 7 "PAScarRearTrunc" : "PAScarRearTrunc"
+Bounding box for object 7 "PAScarRearTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (3, 212) - (70, 327)
+
+# Details for object 8 ("PAScarRear")
+Original label for object 8 "PAScarRear" : "PAScarRear"
+Bounding box for object 8 "PAScarRear" (Xmin, Ymin) - (Xmax, Ymax) : (6, 155) - (57, 206)
+
+# Details for object 9 ("PASbusFrontal")
+Original label for object 9 "PASbusFrontal" : "PASbusFrontal"
+Bounding box for object 9 "PASbusFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (72, 108) - (97, 143)

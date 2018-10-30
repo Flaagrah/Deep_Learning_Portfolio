@@ -1,0 +1,31 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/003174.png"
+Image size (X x Y x C) : 500 x 430 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 5 { "PAShorseLeft" "PAShorseLeft" "PAShorseRightDifficult" "PAShorseRightDifficult" "PASpersonRearTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAShorseLeft")
+Original label for object 1 "PAShorseLeft" : "PAShorseLeft"
+Bounding box for object 1 "PAShorseLeft" (Xmin, Ymin) - (Xmax, Ymax) : (328, 277) - (374, 309)
+
+# Details for object 2 ("PAShorseLeft")
+Original label for object 2 "PAShorseLeft" : "PAShorseLeft"
+Bounding box for object 2 "PAShorseLeft" (Xmin, Ymin) - (Xmax, Ymax) : (287, 276) - (330, 309)
+
+# Details for object 3 ("PAShorseRightDifficult")
+Original label for object 3 "PAShorseRightDifficult" : "PAShorseRightDifficult"
+Bounding box for object 3 "PAShorseRightDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (216, 274) - (242, 303)
+
+# Details for object 4 ("PAShorseRightDifficult")
+Original label for object 4 "PAShorseRightDifficult" : "PAShorseRightDifficult"
+Bounding box for object 4 "PAShorseRightDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (182, 274) - (208, 305)
+
+# Details for object 5 ("PASpersonRearTrunc")
+Original label for object 5 "PASpersonRearTrunc" : "PASpersonRearTrunc"
+Bounding box for object 5 "PASpersonRearTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (76, 251) - (132, 369)

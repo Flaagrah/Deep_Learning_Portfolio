@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001255.png"
+Image size (X x Y x C) : 500 x 325 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASdogFrontal" "PASsheepFrontal" "PASsheep" "PASsheep" "PASsheep" "PASsheep" "PASsheepTruncDifficult" "PASsheepTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASdogFrontal")
+Original label for object 1 "PASdogFrontal" : "PASdogFrontal"
+Bounding box for object 1 "PASdogFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (301, 177) - (330, 217)
+
+# Details for object 2 ("PASsheepFrontal")
+Original label for object 2 "PASsheepFrontal" : "PASsheepFrontal"
+Bounding box for object 2 "PASsheepFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (58, 191) - (97, 248)
+
+# Details for object 3 ("PASsheep")
+Original label for object 3 "PASsheep" : "PASsheep"
+Bounding box for object 3 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (91, 197) - (150, 276)
+
+# Details for object 4 ("PASsheep")
+Original label for object 4 "PASsheep" : "PASsheep"
+Bounding box for object 4 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (150, 202) - (222, 279)
+
+# Details for object 5 ("PASsheep")
+Original label for object 5 "PASsheep" : "PASsheep"
+Bounding box for object 5 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (184, 196) - (240, 271)
+
+# Details for object 6 ("PASsheep")
+Original label for object 6 "PASsheep" : "PASsheep"
+Bounding box for object 6 "PASsheep" (Xmin, Ymin) - (Xmax, Ymax) : (195, 181) - (263, 264)
+
+# Details for object 7 ("PASsheepTruncDifficult")
+Original label for object 7 "PASsheepTruncDifficult" : "PASsheepTruncDifficult"
+Bounding box for object 7 "PASsheepTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (128, 188) - (165, 208)
+
+# Details for object 8 ("PASsheepTruncDifficult")
+Original label for object 8 "PASsheepTruncDifficult" : "PASsheepTruncDifficult"
+Bounding box for object 8 "PASsheepTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (141, 179) - (180, 202)

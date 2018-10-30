@@ -1,0 +1,39 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000901.png"
+Image size (X x Y x C) : 375 x 500 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 7 { "PASmotorbikeTrunc" "PASpersonTrunc" "PASmotorbikeLeftDifficult" "PASpersonRearTruncDifficult" "PASpersonFrontalTrunc" "PASpersonFrontalTruncDifficult" "PASpersonFrontalTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASmotorbikeTrunc")
+Original label for object 1 "PASmotorbikeTrunc" : "PASmotorbikeTrunc"
+Bounding box for object 1 "PASmotorbikeTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (1, 245) - (354, 465)
+
+# Details for object 2 ("PASpersonTrunc")
+Original label for object 2 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 2 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (53, 74) - (241, 498)
+
+# Details for object 3 ("PASmotorbikeLeftDifficult")
+Original label for object 3 "PASmotorbikeLeftDifficult" : "PASmotorbikeLeftDifficult"
+Bounding box for object 3 "PASmotorbikeLeftDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (62, 23) - (128, 53)
+
+# Details for object 4 ("PASpersonRearTruncDifficult")
+Original label for object 4 "PASpersonRearTruncDifficult" : "PASpersonRearTruncDifficult"
+Bounding box for object 4 "PASpersonRearTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (18, 2) - (44, 66)
+
+# Details for object 5 ("PASpersonFrontalTrunc")
+Original label for object 5 "PASpersonFrontalTrunc" : "PASpersonFrontalTrunc"
+Bounding box for object 5 "PASpersonFrontalTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (126, 2) - (142, 41)
+
+# Details for object 6 ("PASpersonFrontalTruncDifficult")
+Original label for object 6 "PASpersonFrontalTruncDifficult" : "PASpersonFrontalTruncDifficult"
+Bounding box for object 6 "PASpersonFrontalTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (146, 1) - (156, 42)
+
+# Details for object 7 ("PASpersonFrontalTruncDifficult")
+Original label for object 7 "PASpersonFrontalTruncDifficult" : "PASpersonFrontalTruncDifficult"
+Bounding box for object 7 "PASpersonFrontalTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (200, 3) - (213, 49)

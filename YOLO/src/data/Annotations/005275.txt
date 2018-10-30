@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/005275.png"
+Image size (X x Y x C) : 500 x 353 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASbicycle" "PASbicycle" "PASbicycleTrunc" "PASbicycleTrunc" "PASpersonFrontal" "PASpersonFrontal" "PASpersonFrontal" "PASpersonFrontal" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbicycle")
+Original label for object 1 "PASbicycle" : "PASbicycle"
+Bounding box for object 1 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (278, 212) - (362, 318)
+
+# Details for object 2 ("PASbicycle")
+Original label for object 2 "PASbicycle" : "PASbicycle"
+Bounding box for object 2 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (227, 223) - (249, 312)
+
+# Details for object 3 ("PASbicycleTrunc")
+Original label for object 3 "PASbicycleTrunc" : "PASbicycleTrunc"
+Bounding box for object 3 "PASbicycleTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (175, 217) - (224, 320)
+
+# Details for object 4 ("PASbicycleTrunc")
+Original label for object 4 "PASbicycleTrunc" : "PASbicycleTrunc"
+Bounding box for object 4 "PASbicycleTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (139, 223) - (189, 310)
+
+# Details for object 5 ("PASpersonFrontal")
+Original label for object 5 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 5 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (281, 163) - (339, 290)
+
+# Details for object 6 ("PASpersonFrontal")
+Original label for object 6 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 6 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (220, 181) - (288, 302)
+
+# Details for object 7 ("PASpersonFrontal")
+Original label for object 7 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 7 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (186, 151) - (231, 287)
+
+# Details for object 8 ("PASpersonFrontal")
+Original label for object 8 "PASpersonFrontal" : "PASpersonFrontal"
+Bounding box for object 8 "PASpersonFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (146, 152) - (189, 285)

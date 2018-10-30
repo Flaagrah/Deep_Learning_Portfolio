@@ -1,0 +1,35 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/004596.png"
+Image size (X x Y x C) : 500 x 333 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 6 { "PASbus" "PASbusTrunc" "PASbusTrunc" "PASbusTrunc" "PASbusTrunc" "PASbusTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbus")
+Original label for object 1 "PASbus" : "PASbus"
+Bounding box for object 1 "PASbus" (Xmin, Ymin) - (Xmax, Ymax) : (206, 61) - (294, 110)
+
+# Details for object 2 ("PASbusTrunc")
+Original label for object 2 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 2 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (149, 61) - (204, 104)
+
+# Details for object 3 ("PASbusTrunc")
+Original label for object 3 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 3 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (111, 66) - (149, 105)
+
+# Details for object 4 ("PASbusTrunc")
+Original label for object 4 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 4 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (77, 71) - (108, 102)
+
+# Details for object 5 ("PASbusTrunc")
+Original label for object 5 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 5 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (44, 72) - (68, 102)
+
+# Details for object 6 ("PASbusTruncDifficult")
+Original label for object 6 "PASbusTruncDifficult" : "PASbusTruncDifficult"
+Bounding box for object 6 "PASbusTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (1, 52) - (44, 135)

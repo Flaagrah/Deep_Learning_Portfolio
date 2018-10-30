@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/001457.png"
+Image size (X x Y x C) : 250 x 369 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASmotorbikeRight" "PASmotorbikeLeft" "PASmotorbike" "PASmotorbikeLeft" "PASpersonTruncDifficult" "PASpersonTruncDifficult" "PASpersonFrontalDifficult" "PASperson" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASmotorbikeRight")
+Original label for object 1 "PASmotorbikeRight" : "PASmotorbikeRight"
+Bounding box for object 1 "PASmotorbikeRight" (Xmin, Ymin) - (Xmax, Ymax) : (15, 238) - (234, 358)
+
+# Details for object 2 ("PASmotorbikeLeft")
+Original label for object 2 "PASmotorbikeLeft" : "PASmotorbikeLeft"
+Bounding box for object 2 "PASmotorbikeLeft" (Xmin, Ymin) - (Xmax, Ymax) : (171, 113) - (228, 162)
+
+# Details for object 3 ("PASmotorbike")
+Original label for object 3 "PASmotorbike" : "PASmotorbike"
+Bounding box for object 3 "PASmotorbike" (Xmin, Ymin) - (Xmax, Ymax) : (16, 116) - (60, 163)
+
+# Details for object 4 ("PASmotorbikeLeft")
+Original label for object 4 "PASmotorbikeLeft" : "PASmotorbikeLeft"
+Bounding box for object 4 "PASmotorbikeLeft" (Xmin, Ymin) - (Xmax, Ymax) : (91, 42) - (159, 84)
+
+# Details for object 5 ("PASpersonTruncDifficult")
+Original label for object 5 "PASpersonTruncDifficult" : "PASpersonTruncDifficult"
+Bounding box for object 5 "PASpersonTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (26, 89) - (49, 119)
+
+# Details for object 6 ("PASpersonTruncDifficult")
+Original label for object 6 "PASpersonTruncDifficult" : "PASpersonTruncDifficult"
+Bounding box for object 6 "PASpersonTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (121, 25) - (148, 55)
+
+# Details for object 7 ("PASpersonFrontalDifficult")
+Original label for object 7 "PASpersonFrontalDifficult" : "PASpersonFrontalDifficult"
+Bounding box for object 7 "PASpersonFrontalDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (198, 90) - (222, 158)
+
+# Details for object 8 ("PASperson")
+Original label for object 8 "PASperson" : "PASperson"
+Bounding box for object 8 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (65, 147) - (165, 353)

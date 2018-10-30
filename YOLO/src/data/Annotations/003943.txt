@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/003943.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASbicycle" "PASbicycle" "PASbicycleDifficult" "PASperson" "PASperson" "PASpersonRear" "PASpersonRear" "PASpersonRear" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbicycle")
+Original label for object 1 "PASbicycle" : "PASbicycle"
+Bounding box for object 1 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (316, 177) - (401, 291)
+
+# Details for object 2 ("PASbicycle")
+Original label for object 2 "PASbicycle" : "PASbicycle"
+Bounding box for object 2 "PASbicycle" (Xmin, Ymin) - (Xmax, Ymax) : (235, 146) - (269, 210)
+
+# Details for object 3 ("PASbicycleDifficult")
+Original label for object 3 "PASbicycleDifficult" : "PASbicycleDifficult"
+Bounding box for object 3 "PASbicycleDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (173, 150) - (192, 214)
+
+# Details for object 4 ("PASperson")
+Original label for object 4 "PASperson" : "PASperson"
+Bounding box for object 4 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (318, 123) - (397, 261)
+
+# Details for object 5 ("PASperson")
+Original label for object 5 "PASperson" : "PASperson"
+Bounding box for object 5 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (236, 111) - (271, 196)
+
+# Details for object 6 ("PASpersonRear")
+Original label for object 6 "PASpersonRear" : "PASpersonRear"
+Bounding box for object 6 "PASpersonRear" (Xmin, Ymin) - (Xmax, Ymax) : (198, 110) - (220, 168)
+
+# Details for object 7 ("PASpersonRear")
+Original label for object 7 "PASpersonRear" : "PASpersonRear"
+Bounding box for object 7 "PASpersonRear" (Xmin, Ymin) - (Xmax, Ymax) : (167, 106) - (197, 200)
+
+# Details for object 8 ("PASpersonRear")
+Original label for object 8 "PASpersonRear" : "PASpersonRear"
+Bounding box for object 8 "PASpersonRear" (Xmin, Ymin) - (Xmax, Ymax) : (146, 111) - (167, 162)

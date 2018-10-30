@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002282.png"
+Image size (X x Y x C) : 500 x 375 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PASpersonFrontalTrunc" "PASpersonLeft" "PASpersonTrunc" "PASperson" "PASperson" "PASbicycleLeftTrunc" "PASbicycleLeftTrunc" "PASbicycleLeftTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASpersonFrontalTrunc")
+Original label for object 1 "PASpersonFrontalTrunc" : "PASpersonFrontalTrunc"
+Bounding box for object 1 "PASpersonFrontalTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (380, 43) - (500, 375)
+
+# Details for object 2 ("PASpersonLeft")
+Original label for object 2 "PASpersonLeft" : "PASpersonLeft"
+Bounding box for object 2 "PASpersonLeft" (Xmin, Ymin) - (Xmax, Ymax) : (326, 83) - (419, 373)
+
+# Details for object 3 ("PASpersonTrunc")
+Original label for object 3 "PASpersonTrunc" : "PASpersonTrunc"
+Bounding box for object 3 "PASpersonTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (132, 92) - (269, 373)
+
+# Details for object 4 ("PASperson")
+Original label for object 4 "PASperson" : "PASperson"
+Bounding box for object 4 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (72, 138) - (206, 354)
+
+# Details for object 5 ("PASperson")
+Original label for object 5 "PASperson" : "PASperson"
+Bounding box for object 5 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (4, 142) - (98, 326)
+
+# Details for object 6 ("PASbicycleLeftTrunc")
+Original label for object 6 "PASbicycleLeftTrunc" : "PASbicycleLeftTrunc"
+Bounding box for object 6 "PASbicycleLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (63, 247) - (323, 375)
+
+# Details for object 7 ("PASbicycleLeftTrunc")
+Original label for object 7 "PASbicycleLeftTrunc" : "PASbicycleLeftTrunc"
+Bounding box for object 7 "PASbicycleLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (29, 216) - (173, 363)
+
+# Details for object 8 ("PASbicycleLeftTrunc")
+Original label for object 8 "PASbicycleLeftTrunc" : "PASbicycleLeftTrunc"
+Bounding box for object 8 "PASbicycleLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (3, 212) - (150, 346)

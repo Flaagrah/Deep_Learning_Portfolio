@@ -1,0 +1,39 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/002451.png"
+Image size (X x Y x C) : 640 x 480 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 7 { "PAScowRight" "PAScowRightTruncDifficult" "PAScow" "PAScowTruncDifficult" "PAScowTruncDifficult" "PAScowTruncDifficult" "PAScowTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScowRight")
+Original label for object 1 "PAScowRight" : "PAScowRight"
+Bounding box for object 1 "PAScowRight" (Xmin, Ymin) - (Xmax, Ymax) : (117, 82) - (535, 359)
+
+# Details for object 2 ("PAScowRightTruncDifficult")
+Original label for object 2 "PAScowRightTruncDifficult" : "PAScowRightTruncDifficult"
+Bounding box for object 2 "PAScowRightTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (267, 264) - (406, 352)
+
+# Details for object 3 ("PAScow")
+Original label for object 3 "PAScow" : "PAScow"
+Bounding box for object 3 "PAScow" (Xmin, Ymin) - (Xmax, Ymax) : (49, 183) - (242, 356)
+
+# Details for object 4 ("PAScowTruncDifficult")
+Original label for object 4 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 4 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (417, 195) - (489, 354)
+
+# Details for object 5 ("PAScowTruncDifficult")
+Original label for object 5 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 5 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (484, 192) - (640, 354)
+
+# Details for object 6 ("PAScowTruncDifficult")
+Original label for object 6 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 6 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (539, 186) - (640, 265)
+
+# Details for object 7 ("PAScowTruncDifficult")
+Original label for object 7 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 7 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (3, 191) - (60, 303)

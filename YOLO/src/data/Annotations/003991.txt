@@ -1,0 +1,31 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/003991.png"
+Image size (X x Y x C) : 500 x 378 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 5 { "PAShorseLeft" "PAShorseLeft" "PASpersonLeft" "PASpersonLeftDifficult" "PASpersonLeftTruncDifficult" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAShorseLeft")
+Original label for object 1 "PAShorseLeft" : "PAShorseLeft"
+Bounding box for object 1 "PAShorseLeft" (Xmin, Ymin) - (Xmax, Ymax) : (80, 90) - (395, 340)
+
+# Details for object 2 ("PAShorseLeft")
+Original label for object 2 "PAShorseLeft" : "PAShorseLeft"
+Bounding box for object 2 "PAShorseLeft" (Xmin, Ymin) - (Xmax, Ymax) : (81, 109) - (394, 361)
+
+# Details for object 3 ("PASpersonLeft")
+Original label for object 3 "PASpersonLeft" : "PASpersonLeft"
+Bounding box for object 3 "PASpersonLeft" (Xmin, Ymin) - (Xmax, Ymax) : (199, 36) - (281, 208)
+
+# Details for object 4 ("PASpersonLeftDifficult")
+Original label for object 4 "PASpersonLeftDifficult" : "PASpersonLeftDifficult"
+Bounding box for object 4 "PASpersonLeftDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (212, 28) - (284, 129)
+
+# Details for object 5 ("PASpersonLeftTruncDifficult")
+Original label for object 5 "PASpersonLeftTruncDifficult" : "PASpersonLeftTruncDifficult"
+Bounding box for object 5 "PASpersonLeftTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (207, 26) - (282, 132)

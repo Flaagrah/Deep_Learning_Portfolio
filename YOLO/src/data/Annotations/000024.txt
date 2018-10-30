@@ -1,0 +1,43 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/000024.png"
+Image size (X x Y x C) : 640 x 480 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 8 { "PAScowRight" "PAScowFrontal" "PAScow" "PAScowDifficult" "PAScowTruncDifficult" "PAScowRightTruncDifficult" "PAScowTruncDifficult" "PAScowLeftTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PAScowRight")
+Original label for object 1 "PAScowRight" : "PAScowRight"
+Bounding box for object 1 "PAScowRight" (Xmin, Ymin) - (Xmax, Ymax) : (96, 199) - (392, 296)
+
+# Details for object 2 ("PAScowFrontal")
+Original label for object 2 "PAScowFrontal" : "PAScowFrontal"
+Bounding box for object 2 "PAScowFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (373, 210) - (472, 298)
+
+# Details for object 3 ("PAScow")
+Original label for object 3 "PAScow" : "PAScow"
+Bounding box for object 3 "PAScow" (Xmin, Ymin) - (Xmax, Ymax) : (423, 136) - (530, 258)
+
+# Details for object 4 ("PAScowDifficult")
+Original label for object 4 "PAScowDifficult" : "PAScowDifficult"
+Bounding box for object 4 "PAScowDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (442, 268) - (589, 370)
+
+# Details for object 5 ("PAScowTruncDifficult")
+Original label for object 5 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 5 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (570, 260) - (640, 356)
+
+# Details for object 6 ("PAScowRightTruncDifficult")
+Original label for object 6 "PAScowRightTruncDifficult" : "PAScowRightTruncDifficult"
+Bounding box for object 6 "PAScowRightTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (526, 180) - (586, 214)
+
+# Details for object 7 ("PAScowTruncDifficult")
+Original label for object 7 "PAScowTruncDifficult" : "PAScowTruncDifficult"
+Bounding box for object 7 "PAScowTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (296, 140) - (351, 179)
+
+# Details for object 8 ("PAScowLeftTrunc")
+Original label for object 8 "PAScowLeftTrunc" : "PAScowLeftTrunc"
+Bounding box for object 8 "PAScowLeftTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (193, 173) - (299, 214)

@@ -1,0 +1,51 @@
+# PASCAL Annotation Version 1.00
+
+Image filename : "VOC2006/PNGImages/003816.png"
+Image size (X x Y x C) : 500 x 325 x 3
+Database : "The VOC2006 Database"
+Objects with ground truth : 10 { "PASbusTruncDifficult" "PASbusTrunc" "PASbusTrunc" "PASbusTrunc" "PASbusTrunc" "PASbusFrontal" "PASbusFrontal" "PASbus" "PASbusTrunc" "PASbusTrunc" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (1, 1)
+
+# Details for object 1 ("PASbusTruncDifficult")
+Original label for object 1 "PASbusTruncDifficult" : "PASbusTruncDifficult"
+Bounding box for object 1 "PASbusTruncDifficult" (Xmin, Ymin) - (Xmax, Ymax) : (478, 152) - (500, 205)
+
+# Details for object 2 ("PASbusTrunc")
+Original label for object 2 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 2 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (415, 151) - (478, 205)
+
+# Details for object 3 ("PASbusTrunc")
+Original label for object 3 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 3 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (338, 154) - (413, 202)
+
+# Details for object 4 ("PASbusTrunc")
+Original label for object 4 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 4 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (283, 153) - (338, 202)
+
+# Details for object 5 ("PASbusTrunc")
+Original label for object 5 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 5 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (226, 153) - (284, 207)
+
+# Details for object 6 ("PASbusFrontal")
+Original label for object 6 "PASbusFrontal" : "PASbusFrontal"
+Bounding box for object 6 "PASbusFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (173, 151) - (225, 206)
+
+# Details for object 7 ("PASbusFrontal")
+Original label for object 7 "PASbusFrontal" : "PASbusFrontal"
+Bounding box for object 7 "PASbusFrontal" (Xmin, Ymin) - (Xmax, Ymax) : (114, 154) - (167, 204)
+
+# Details for object 8 ("PASbus")
+Original label for object 8 "PASbus" : "PASbus"
+Bounding box for object 8 "PASbus" (Xmin, Ymin) - (Xmax, Ymax) : (54, 149) - (114, 202)
+
+# Details for object 9 ("PASbusTrunc")
+Original label for object 9 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 9 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (18, 149) - (53, 201)
+
+# Details for object 10 ("PASbusTrunc")
+Original label for object 10 "PASbusTrunc" : "PASbusTrunc"
+Bounding box for object 10 "PASbusTrunc" (Xmin, Ymin) - (Xmax, Ymax) : (1, 145) - (17, 213)
