@@ -15,7 +15,7 @@ def read_data():
     imgs = []
     anns = []
     
-    for i in range(0, 4):#len(file_list)):
+    for i in range(0, len(file_list)):
         f = file_list[i]
         img_dir = join(imgs_dir, f)
         ann_dir = f.replace(".png", ".txt")
@@ -31,16 +31,10 @@ def read_data():
         imgs.append(img)
         anns.append(ann)
     
-    img_input = create_img_inputs(imgs[0:4])
-    label_create = create_labels(dims[0:4], anns[0:4])
+    img_input = create_img_inputs(imgs)
+    label_create = create_labels(dims, anns)
     
-    #for i in range(0, len(img_input[0])):
-     #   print(img_input[0][i])
-    print("hello")
-    lc = np.reshape(label_create[0], newshape=(1, 16, 16, 14))
-    print(lc[0][8][7][2])
-    #for i in range(0, len(label_create[0])):
-     #   print(label_create[0][i])
+    return img_input, dims, label_create
         
         
 def parse_bound_box_tuple(tuple):
@@ -81,6 +75,8 @@ def create_img_inputs(imgs):
     for i in range(0, len(imgs)):
         img = imgs[i].astype(np.float32)
         img = scipy.misc.imresize(img, (IMAGE_HEIGHT, IMAGE_WIDTH, 3))
+        #if (i == 0):
+         #   scipy.misc.imsave("something.png", img)
         img = img/255.0
         reshaped_imgs.append(img.flatten())
     return reshaped_imgs
@@ -126,6 +122,9 @@ def create_labels(dims, parsed_anns):
         labels = np.concatenate([labels, label], axis=0)
     
     return labels
-          
-read_data()
+
+def convert_to_output(dims, preds):
+    pred_boxes = np.reshape(preds, (-1, 16, 16, len(CLASSES)+4))
+    print()
+         
     
