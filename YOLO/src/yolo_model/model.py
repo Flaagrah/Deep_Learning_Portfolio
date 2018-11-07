@@ -1,4 +1,4 @@
-import tensorflow
+import tensorflow as tf
 import os
 import numpy as np
 import pandas
@@ -9,29 +9,31 @@ from pathlib import Path
 
 import data_processing.parser as parser
 
-from yolo_model import B_BOX_SIDE as B_BOX_SIDE, CLASSES
+from yolo_model import B_BOX_SIDE as B_BOX_SIDE, CLASSES, B_BOX_SIDE
 from yolo_model import IMAGE_HEIGHT as IMAGE_HEIGHT
 from yolo_model import IMAGE_WIDTH as IMAGE_WIDTH
 
- 
 from tensorflow.python.ops import array_ops
+from datashape.coretypes import float32
+
 def conv2d_3x3(filters):
-    return tensorflow.layers.Conv2D(filters, kernel_size=(3,3), activation=tensorflow.nn.relu, padding='same')
+    return tf.layers.Conv2D(filters, kernel_size=(3,3), activation=tf.nn.relu, padding='same')
 
 def max_pool():
-    return tensorflow.layers.MaxPooling2D((2,2), strides=2, padding='same') 
+    return tf.layers.MaxPooling2D((2,2), strides=2, padding='same') 
 
 def conv2d_transpose_2x2(filters):
-    return tensorflow.layers.Conv2DTranspose(filters, kernel_size=(2, 2), strides=(2, 2), padding='same')
+    return tf.layers.Conv2DTranspose(filters, kernel_size=(2, 2), strides=(2, 2), padding='same')
 
 def concatenate(branches):
     return array_ops.concat(branches, 3)
 
 num_classes = len(CLASSES)
+batch=100
 def createModel(features, labels, mode):
-    input_layer = tensorflow.reshape(features["x"], [-1, IMAGE_HEIGHT, IMAGE_WIDTH, 3])
+    input_layer = tf.reshape(features["x"], [-1, IMAGE_HEIGHT, IMAGE_WIDTH, 3])
     #Model taken from:
-    #https://www.kaggle.com/piotrczapla/tensorflow-u-net-starter-lb-0-34
+    #https://www.kaggle.com/piotrczapla/tf-u-net-starter-lb-0-34
     c1 = conv2d_3x3(8) (input_layer)
     c1 = conv2d_3x3(8) (c1)
     p1 = max_pool() (c1)
@@ -71,61 +73,56 @@ def createModel(features, labels, mode):
     c9 = conv2d_3x3(8) (u9)
     c9 = conv2d_3x3(8) (c9)
 
-    c15 = tensorflow.layers.Conv2D(1, (1, 1)) (c9)
-    c15 = tensorflow.layers.Flatten()(c15)
-    #dense = tensorflow.layers.Dense(units = 1280)(c15)
-    #dropout = tensorflow.layers.Dropout(rate=0.2)(dense)
+    c15 = tf.layers.Conv2D(1, (1, 1)) (c9)
+    c15 = tf.layers.Flatten()(c15)
+    #dense = tf.layers.Dense(units = 1280)(c15)
+    #dropout = tf.layers.Dropout(rate=0.2)(dense)
     
-    preds = tensorflow.layers.Dense(units = int( (IMAGE_HEIGHT/B_BOX_SIDE) * (IMAGE_WIDTH/B_BOX_SIDE) * (4+num_classes) ), activation=tensorflow.nn.sigmoid, kernel_initializer=tensorflow.contrib.layers.xavier_initializer() )(c15)
+    preds = tf.layers.Dense(units = int( (IMAGE_HEIGHT/B_BOX_SIDE) * (IMAGE_WIDTH/B_BOX_SIDE) * (4+num_classes) ), activation=tf.nn.sigmoid, kernel_initializer=tf.contrib.layers.xavier_initializer() )(c15)
     predictions = {
         "preds": preds,
         }
     
-    if mode == tensorflow.estimator.ModeKeys.PREDICT :
-        return tensorflow.estimator.EstimatorSpec(mode=mode, predictions=predictions)
+    if mode == tf.estimator.ModeKeys.PREDICT :
+        return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
     
-    #loss = tensorflow.losses.mean_squared_error(labels=labels, predictions=preds)
+    #loss = tf.losses.mean_squared_error(labels=labels, predictions=preds)
     #How are the preds reshaped.
-    reshapedPreds = tensorflow.reshape(preds, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
-    reshapedLabels = tensorflow.reshape(labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
+    reshapedPreds = tf.reshape(preds, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
+    reshapedLabels = tf.reshape(labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
     
-    #Cost calculation taken from https://stackoverflow.com/questions/48938120/make-tensorflow-ignore-values
-    #This excludes bounding boxes that are 
-    mask = tensorflow.tile(reshapedLabels[:, :, :, 0:1], [1, 1, 1, num_classes+4]) #repeating the first item 5 times
-    mask_first = tensorflow.tile(reshapedLabels[:, :, :, 0:1], [1, 1, 1, 1]) #repeating the first item 1 time
+    mask_sub1 = tf.reduce_sum(input_tensor=reshapedLabels, axis=3, keepdims=True)
 
-    mask_of_ones = tensorflow.ones(tensorflow.shape(mask_first))
-
-    full_mask = tensorflow.concat([tensorflow.to_float(mask_of_ones), tensorflow.to_float(mask[:, :, :, 1:])], 3)
-
-    terms = tensorflow.multiply(full_mask, tensorflow.to_float(tensorflow.subtract(reshapedLabels, reshapedPreds, name="loss")))
+    mask_sub2 = tf.clip_by_value(t=mask_sub1, clip_value_max=tf.constant(1.0), clip_value_min=tf.constant(0.0))
+    mask_sub3 = tf.ceil(mask_sub2)
+    mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
+    num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
     
-    #Number of bounding boxes in the prediction.
-    num_boxes = tensorflow.cast(tensorflow.count_nonzero(mask_first), dtype=tensorflow.float32)
+    squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
+    masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
+    masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
+    shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
     
-    #Number of segments in the image.
-    num_segments = tensorflow.cast(tensorflow.size(input = mask_first, out_type = tensorflow.int32), dtype=tensorflow.float32)
+    num_class_labels = tf.convert_to_tensor(tf.constant(num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
+    denominator = tf.add(num_terms, num_class_labels)
+    loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
     
-    #Number of terms that are counted (total output size minus x, y, w, h of segments with no bounding box).
-    non_zeros = tensorflow.add(num_segments, tensorflow.multiply(num_boxes, 4.0))
     
-    loss = tensorflow.div((tensorflow.reduce_sum(tensorflow.square(terms))), non_zeros, "loss_calc")
-    
-    if mode == tensorflow.estimator.ModeKeys.TRAIN:
-        optimizer = tensorflow.train.AdamOptimizer(learning_rate=0.001)
+    if mode == tf.estimator.ModeKeys.TRAIN:
+        optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
         train_op = optimizer.minimize(
             loss=loss,
-            global_step=tensorflow.train.get_global_step())
-        return tensorflow.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)
+            global_step=tf.train.get_global_step())
+        return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)
         
     eval_metric_ops = {
-        "accuracy": tensorflow.metrics.accuracy(
+        "accuracy": tf.metrics.accuracy(
         labels=labels, predictions=preds)}
-    return tensorflow.estimator.EstimatorSpec(
+    return tf.estimator.EstimatorSpec(
         mode=mode, loss=loss, eval_metric_ops=eval_metric_ops)
     
 moddir = "saved_models"
-current_model = tensorflow.estimator.Estimator(
+current_model = tf.estimator.Estimator(
     model_fn = createModel, model_dir=moddir)
 
 def trainModel(unused_argv):
@@ -155,12 +152,12 @@ def trainModel(unused_argv):
     test_labels = labels[train_set_size:]
     
     tensors_to_log = {}
-    logging_hook = tensorflow.train.LoggingTensorHook(
+    logging_hook = tf.train.LoggingTensorHook(
         tensors=tensors_to_log, every_n_iter=50)
-    train_input_fn = tensorflow.estimator.inputs.numpy_input_fn(
+    train_input_fn = tf.estimator.inputs.numpy_input_fn(
         x={"x": np.array(train_imgs).astype(np.float32)},
         y=np.array(train_labels).astype(np.float32),
-        batch_size=100,
+        batch_size=batch,
         num_epochs=20,
         shuffle=True)
 
@@ -169,14 +166,65 @@ def trainModel(unused_argv):
         steps=20000,
         hooks=[logging_hook])
     
-    eval_input_fn = tensorflow.estimator.inputs.numpy_input_fn(
+    eval_input_fn = tf.estimator.inputs.numpy_input_fn(
         x={"x": np.array(test_imgs).astype(np.float32)},
         y=np.array(test_labels).astype(np.float32),
         num_epochs=1,
         shuffle=False)
     current_model.evaluate(input_fn=eval_input_fn)
         
-tensorflow.logging.set_verbosity(tensorflow.logging.INFO)
-tensorflow.app.run(trainModel)
-        
+tf.logging.set_verbosity(tf.logging.INFO)
+tf.app.run(trainModel)
+
+reshapedLabels = np.zeros((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
+#reshapedPreds = np.random.uniform(0.0, 1.0, (3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
+reshapedPreds = np.zeros(((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4)))
+
+reshapedLabels[0][3][4][5]=1.0
+reshapedLabels[0][3][4][10]=0.3
+reshapedLabels[0][3][4][11]=0.5
+reshapedLabels[0][3][4][12]=0.4
+reshapedLabels[0][3][4][13]=0.7
+
+reshapedLabels[0][6][7][8]=1.0
+reshapedLabels[0][6][7][10]=0.4
+reshapedLabels[0][6][7][11]=0.5
+reshapedLabels[0][6][7][12]=0.7
+reshapedLabels[0][6][7][13]=0.8
+
+reshapedLabels[1][5][2][3]=1.0
+reshapedLabels[1][5][2][10]=0.4
+reshapedLabels[1][5][2][11]=0.2
+reshapedLabels[1][5][2][12]=0.2
+reshapedLabels[1][5][2][13]=0.4
+
+reshapedLabels[2][6][1][2]=1.0
+reshapedLabels[2][6][1][10]=0.8
+reshapedLabels[2][6][1][11]=0.3
+reshapedLabels[2][6][1][12]=0.3
+reshapedLabels[2][6][1][13]=0.6
+ 
+reshapedLabels = tf.convert_to_tensor(reshapedLabels, dtype=tf.float32)       
+reshapedPreds = tf.convert_to_tensor(reshapedPreds, dtype=tf.float32)
+
+mask_sub1 = tf.reduce_sum(input_tensor=reshapedLabels, axis=3, keepdims=True)
+
+mask_sub2 = tf.clip_by_value(t=mask_sub1, clip_value_max=tf.constant(1.0), clip_value_min=tf.constant(0.0))
+mask_sub3 = tf.ceil(mask_sub2)
+mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
+num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
+
+squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
+masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
+masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
+shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
+
+num_class_labels = tf.convert_to_tensor(tf.constant(num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
+denominator = tf.add(num_terms, num_class_labels)
+loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
+
+with tf.Session() as sess:
+    t, l = sess.run([denominator, loss])
+    print(l)
+    print(t)
         
