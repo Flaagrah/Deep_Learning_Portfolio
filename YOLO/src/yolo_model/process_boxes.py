@@ -8,7 +8,7 @@ num_classes = len(CLASSES)
 hit_thresh = 0.5
 IOU_thresh = 0.4
 
-def convertToBoxes(preds):
+def convertAllPredsToBoxes(preds):
     rPreds = np.reshape(preds, (-1, num_boxes_ver, num_boxes_hor, num_classes+4))
     
     boxes = []
@@ -98,9 +98,9 @@ def evalIOU(box1, box2):
         top = - 1
         bottom = - 1
         
-        if max1<max2 and max1>min2:
+        if max1<=max2 and max1>=min2:
             top = max1
-        elif max2<max1 and max2>min1:
+        elif max2<=max1 and max2>=min1:
             top = max2
         
         if not top == - 1:
@@ -118,3 +118,37 @@ def evalIOU(box1, box2):
     intersection = ver_overlap*hor_overlap
     union = (y1max-y1min)*(x1max-x1min)+(y2max-y2min)*(x2max-x2min)-intersection
     return intersection/union
+
+def removeBoxes(b_boxes):
+    k=0
+    while k<len(b_boxes):
+        print("index "+str(k))
+        box = b_boxes[k]
+        remove_indices = []
+        for j in range(k+1, len(b_boxes)):
+            iou = evalIOU(box, b_boxes[j])
+            print(iou)
+            if iou>IOU_thresh and not j in remove_indices:
+                print("remove "+str(j))
+                remove_indices.append(j)
+    
+        new_b_boxes = []
+        for i in range(0, len(b_boxes)):
+            if not i in remove_indices:
+                new_b_boxes.append(b_boxes[i])
+        print(new_b_boxes)
+        b_boxes = new_b_boxes
+        k=k+1
+        
+    return b_boxes
+                
+
+def getBoxes(preds):
+    boxes = convertAllPredsToBoxes(preds)
+    for i in range(0, len(boxes)):
+        boxes[i] = sortByProb(boxes[i])
+        boxes[i] = removeBoxes(boxes[i])
+    return boxes
+        
+b = [[1, 0.6, 30, 60, 28, 45], [3, 0.5, 34, 67, 28, 45], [2, 0.4, 65, 73, 10, 15], [6, 0.3, 65, 73, 10, 15]]
+print(removeBoxes(b))  

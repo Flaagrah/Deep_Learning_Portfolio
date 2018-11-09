@@ -8,7 +8,8 @@ from skimage.io import imread
 from pathlib import Path
 
 import data_processing.parser as parser
-
+import yolo_model.normalization as normalization
+import yolo_model.process_boxes as process_boxes
 from yolo_model import B_BOX_SIDE as B_BOX_SIDE, CLASSES, B_BOX_SIDE
 from yolo_model import IMAGE_HEIGHT as IMAGE_HEIGHT
 from yolo_model import IMAGE_WIDTH as IMAGE_WIDTH
@@ -29,7 +30,7 @@ def concatenate(branches):
     return array_ops.concat(branches, 3)
 
 num_classes = len(CLASSES)
-batch=100
+batch=50
 def createModel(features, labels, mode):
     input_layer = tf.reshape(features["x"], [-1, IMAGE_HEIGHT, IMAGE_WIDTH, 3])
     #Model taken from:
@@ -103,7 +104,7 @@ def createModel(features, labels, mode):
     masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
     shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
     
-    num_class_labels = tf.convert_to_tensor(tf.constant(num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
+    num_class_labels = tf.convert_to_tensor(tf.constant(batch*num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
     denominator = tf.add(num_terms, num_class_labels)
     loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
     
@@ -114,12 +115,16 @@ def createModel(features, labels, mode):
             loss=loss,
             global_step=tf.train.get_global_step())
         return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)
-        
-    eval_metric_ops = {
-        "accuracy": tf.metrics.accuracy(
-        labels=labels, predictions=preds)}
-    return tf.estimator.EstimatorSpec(
-        mode=mode, loss=loss, eval_metric_ops=eval_metric_ops)
+    
+    if mode == tf.estimator.ModeKeys.EVAL:
+        eval_metric_ops = {
+            "accuracy": tf.metrics.accuracy(
+            labels=labels, predictions=preds)
+            }
+        return tf.estimator.EstimatorSpec(
+            mode=mode, loss=loss, eval_metric_ops=eval_metric_ops)
+    
+    
     
 moddir = "saved_models"
 current_model = tf.estimator.Estimator(
@@ -142,14 +147,22 @@ def trainModel(unused_argv):
         labels = np.reshape(np.asarray(np.load('labels.npy')).astype(np.float32), (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
         print()
     
+    labels = normalization.NormalizeWidthHeightForAll(labels)
+    
     train_set_size = 5000
+    eval_size = 200
     train_imgs = imgs[0:train_set_size]
     train_dims = dims[0:train_set_size]
     train_labels = labels[0:train_set_size]
     
-    test_imgs = imgs[train_set_size:]
-    test_dims = dims[train_set_size:]
-    test_labels = labels[train_set_size:]
+    test_imgs = imgs[train_set_size:train_set_size+eval_size]
+    test_dims = dims[train_set_size:train_set_size+eval_size]
+    test_labels = labels[train_set_size:train_set_size+eval_size]
+    
+    pred_ind = train_set_size+eval_size
+    pred_imgs = imgs[pred_ind:]
+    pred_dims = dims[pred_ind:]
+    pred_labels = labels[pred_ind:] 
     
     tensors_to_log = {}
     logging_hook = tf.train.LoggingTensorHook(
@@ -158,7 +171,7 @@ def trainModel(unused_argv):
         x={"x": np.array(train_imgs).astype(np.float32)},
         y=np.array(train_labels).astype(np.float32),
         batch_size=batch,
-        num_epochs=20,
+        num_epochs=1,
         shuffle=True)
 
     current_model.train(
@@ -172,6 +185,24 @@ def trainModel(unused_argv):
         num_epochs=1,
         shuffle=False)
     current_model.evaluate(input_fn=eval_input_fn)
+    
+    pred_input_fn = tf.estimator.inputs.numpy_input_fn(
+        x={"x": np.array(pred_imgs).astype(np.float32)},
+        y=np.array(pred_labels).astype(np.float32),
+        shuffle=False)
+    predicates = current_model.predict(input_fn=pred_input_fn)
+    preds = []
+    for pred in predicates:
+        #print(tf.shape(pred))
+        p = pred["preds"]
+        p = np.reshape(p, (int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
+        preds.append(p)
+    preds = normalization.unNormalizeAll(np.array(preds))
+    boxes = process_boxes.getBoxes(preds)
+    print("Box")
+    print(boxes[1])
+    print(boxes[2])
+    print(boxes[3])
         
 tf.logging.set_verbosity(tf.logging.INFO)
 tf.app.run(trainModel)
@@ -219,12 +250,13 @@ masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
 masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
 shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
 
-num_class_labels = tf.convert_to_tensor(tf.constant(num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
+num_class_labels = tf.convert_to_tensor(tf.constant(3*num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
 denominator = tf.add(num_terms, num_class_labels)
 loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
 
 with tf.Session() as sess:
-    t, l = sess.run([denominator, loss])
-    print(l)
-    print(t)
+    n, t, l = sess.run([num_terms, denominator, loss])
+    #print(l)
+    #print(t)
+    #print(n)
         
