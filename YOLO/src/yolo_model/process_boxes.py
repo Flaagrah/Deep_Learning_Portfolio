@@ -23,7 +23,6 @@ def convertAllPredsToBoxes(preds):
                     if pred[i][j][k]>maxProb:
                         maxProb=pred[i][j][k]
                         c=k
-                        
                 if c>-1 and maxProb>=hit_thresh:
                     segmentY = i*B_BOX_SIDE
                     segmentX = j*B_BOX_SIDE
@@ -117,6 +116,8 @@ def evalIOU(box1, box2):
     
     intersection = ver_overlap*hor_overlap
     union = (y1max-y1min)*(x1max-x1min)+(y2max-y2min)*(x2max-x2min)-intersection
+    if union==0:
+        return 0
     return intersection/union
 
 def removeBoxes(b_boxes):
