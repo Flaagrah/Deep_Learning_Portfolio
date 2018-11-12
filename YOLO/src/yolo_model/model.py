@@ -16,9 +16,10 @@ from yolo_model import IMAGE_WIDTH as IMAGE_WIDTH
 
 from tensorflow.python.ops import array_ops
 from datashape.coretypes import float32
+from tensorflow.contrib.model_pruning.python.pruning import _weight_mask_variable
 
-def conv2d_4x4(filters):
-    return tf.layers.Conv2D(filters, kernel_size=(4,4), activation=tf.nn.relu, padding='same')
+def conv2d_3x3(filters):
+    return tf.layers.Conv2D(filters, kernel_size=(3,3), activation=tf.nn.relu, padding='same')
 
 def max_pool():
     return tf.layers.MaxPooling2D((2,2), strides=2, padding='same') 
@@ -35,44 +36,44 @@ def createModel(features, labels, mode):
     input_layer = tf.reshape(features["x"], [-1, IMAGE_HEIGHT, IMAGE_WIDTH, 3])
     #Model taken from:
     #https://www.kaggle.com/piotrczapla/tf-u-net-starter-lb-0-34
-    c1 = conv2d_4x4(8) (input_layer)
-    c1 = conv2d_4x4(8) (c1)
+    c1 = conv2d_3x3(8) (input_layer)
+    c1 = conv2d_3x3(8) (c1)
     p1 = max_pool() (c1)
 
-    c2 = conv2d_4x4(16) (p1)
-    c2 = conv2d_4x4(16) (c2)
+    c2 = conv2d_3x3(16) (p1)
+    c2 = conv2d_3x3(16) (c2)
     p2 = max_pool() (c2)
 
-    c3 = conv2d_4x4(32) (p2)
-    c3 = conv2d_4x4(32) (c3)
+    c3 = conv2d_3x3(32) (p2)
+    c3 = conv2d_3x3(32) (c3)
     p3 = max_pool() (c3)
 
-    c4 = conv2d_4x4(64) (p3)
-    c4 = conv2d_4x4(64) (c4)
+    c4 = conv2d_3x3(64) (p3)
+    c4 = conv2d_3x3(64) (c4)
     p4 = max_pool() (c4)
 
-    c5 = conv2d_4x4(128) (p4)
-    c5 = conv2d_4x4(128) (c5)
+    c5 = conv2d_3x3(128) (p4)
+    c5 = conv2d_3x3(128) (c5)
 
     u6 = conv2d_transpose_2x2(64) (c5)
     u6 = concatenate([u6, c4])
-    c6 = conv2d_4x4(64) (u6)
-    c6 = conv2d_4x4(64) (c6)
+    c6 = conv2d_3x3(64) (u6)
+    c6 = conv2d_3x3(64) (c6)
 
     u7 = conv2d_transpose_2x2(32) (c6)
     u7 = concatenate([u7, c3])
-    c7 = conv2d_4x4(32) (u7)
-    c7 = conv2d_4x4(32) (c7)
+    c7 = conv2d_3x3(32) (u7)
+    c7 = conv2d_3x3(32) (c7)
 
     u8 = conv2d_transpose_2x2(16) (c7)
     u8 = concatenate([u8, c2])
-    c8 = conv2d_4x4(16) (u8)
-    c8 = conv2d_4x4(16) (c8)
+    c8 = conv2d_3x3(16) (u8)
+    c8 = conv2d_3x3(16) (c8)
 
     u9 = conv2d_transpose_2x2(8) (c8)
     u9 = concatenate([u9, c1])
-    c9 = conv2d_4x4(8) (u9)
-    c9 = conv2d_4x4(8) (c9)
+    c9 = conv2d_3x3(8) (u9)
+    c9 = conv2d_3x3(8) (c9)
 
     c15 = tf.layers.Conv2D(1, (1, 1)) (c9)
     c15 = tf.layers.Flatten()(c15)
@@ -99,7 +100,15 @@ def createModel(features, labels, mode):
     mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
     num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
     
-    squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
+    flag_weights = tf.multiply(tf.ones([num_classes], dtype=tf.float32), tf.constant(0.3))
+    dim_weights = tf.constant([0.3, 0.3, 1.0, 1.0])
+    
+    weight_mask = tf.reshape(tf.concat([flag_weights, dim_weights], axis=0), shape=(1,1,1,num_classes+4))
+    
+    #print(reshapedPreds)
+    #print(weight_mask)
+    squared_diff = tf.multiply(tf.square(tf.subtract(reshapedPreds, reshapedLabels)), weight_mask)
+    #squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
     masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
     masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
     shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
@@ -187,10 +196,10 @@ def trainModel(unused_argv):
         x={"x": np.array(train_imgs).astype(np.float32)},
         y=np.array(train_labels).astype(np.float32),
         batch_size=batch,
-        num_epochs=100,
+        num_epochs=200,
         shuffle=True)
 
-    current_model.train(input_fn=train_input_fn,steps=20000,hooks=[logging_hook])
+    current_model.train(input_fn=train_input_fn,steps=40000,hooks=[logging_hook])
     
     eval_input_fn = tf.estimator.inputs.numpy_input_fn(
         x={"x": np.array(test_imgs).astype(np.float32)},
@@ -213,6 +222,13 @@ def trainModel(unused_argv):
     print(boxes[1])
     print(boxes[2])
     print(boxes[3])
+    print(boxes[4])
+    print(boxes[5])
+    print(boxes[6])
+    print(boxes[7])
+    print(boxes[8])
+    print(boxes[9])
+    print(boxes[10])
         
 tf.logging.set_verbosity(tf.logging.INFO)
 tf.app.run(trainModel)
