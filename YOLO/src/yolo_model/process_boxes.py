@@ -26,10 +26,10 @@ def convertAllPredsToBoxes(preds):
                 if c>-1 and maxProb>=hit_thresh:
                     segmentY = i*B_BOX_SIDE
                     segmentX = j*B_BOX_SIDE
-                    y = round(segmentY+pred[i][j][11]*B_BOX_SIDE)
-                    x = round(segmentX+pred[i][j][10]*B_BOX_SIDE)
-                    height = round(pred[i][j][13]*IMAGE_HEIGHT)
-                    width = round(pred[i][j][12]*IMAGE_WIDTH)
+                    y = round(segmentY+pred[i][j][num_classes+1]*B_BOX_SIDE)
+                    x = round(segmentX+pred[i][j][num_classes]*B_BOX_SIDE)
+                    height = round(pred[i][j][num_classes+3]*IMAGE_HEIGHT)
+                    width = round(pred[i][j][num_classes+2]*IMAGE_WIDTH)
                     imgBoxes.append([c, maxProb, x, y, width, height])
                     
         boxes.append(imgBoxes)
@@ -151,5 +151,4 @@ def getBoxes(preds):
         boxes[i] = removeBoxes(boxes[i])
     return boxes
         
-b = [[1, 0.6, 30, 60, 28, 45], [3, 0.5, 34, 67, 28, 45], [2, 0.4, 65, 73, 10, 15], [6, 0.3, 65, 73, 10, 15]]
-print(removeBoxes(b))  
+  

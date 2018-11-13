@@ -10,6 +10,7 @@ from pathlib import Path
 import data_processing.parser as parser
 import yolo_model.normalization as normalization
 import yolo_model.process_boxes as process_boxes
+import yolo_model.data_augmentation as data_aug
 from yolo_model import B_BOX_SIDE as B_BOX_SIDE, CLASSES, B_BOX_SIDE
 from yolo_model import IMAGE_HEIGHT as IMAGE_HEIGHT
 from yolo_model import IMAGE_WIDTH as IMAGE_WIDTH
@@ -96,12 +97,12 @@ def createModel(features, labels, mode):
     mask_sub1 = tf.reduce_sum(input_tensor=reshapedLabels, axis=3, keepdims=True)
 
     mask_sub2 = tf.clip_by_value(t=mask_sub1, clip_value_max=tf.constant(1.0), clip_value_min=tf.constant(0.0))
-    mask_sub3 = tf.ceil(mask_sub2)
+    mask_sub3 = tf.ceil(mask_sub2) 
     mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
     num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
     
-    flag_weights = tf.multiply(tf.ones([num_classes], dtype=tf.float32), tf.constant(0.3))
-    dim_weights = tf.constant([0.3, 0.3, 1.0, 1.0])
+    flag_weights = tf.multiply(tf.ones([num_classes], dtype=tf.float32), tf.constant(1.0))
+    dim_weights = tf.constant([1.0, 1.0, 1.0, 1.0])
     
     weight_mask = tf.reshape(tf.concat([flag_weights, dim_weights], axis=0), shape=(1,1,1,num_classes+4))
     
@@ -146,9 +147,9 @@ def trainModel(unused_argv):
     if not Path('imgs.npy').is_file():
         print("Creating input")
         imgs, dims, labels = parser.read_data()
-        np.save("imgs.npy", np.array(imgs))
-        np.save("dims.npy", np.array(dims))
-        np.save("labels.npy", np.array(labels))
+        np.save("imgs.npy", imgs)
+        np.save("dims.npy", dims)
+        np.save("labels.npy", labels)
     else:
         print("Loading input")
         imgs = np.reshape(np.asarray(np.load('imgs.npy')).astype(np.float32), (-1, IMAGE_HEIGHT, IMAGE_WIDTH, 3))
@@ -156,7 +157,7 @@ def trainModel(unused_argv):
         labels = np.reshape(np.asarray(np.load('labels.npy')).astype(np.float32), (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
         print()
     
-    labels = normalization.NormalizeWidthHeightForAll(labels)
+    #labels = normalization.NormalizeWidthHeightForAll(labels)
     print("unsmoothed label")
     print(labels[0])
     #Add label smoothing so that the flags are between 0.1 and 0.9
@@ -167,6 +168,17 @@ def trainModel(unused_argv):
     fLabels[:,:,:,0:num_classes] = flags
     
     labels = np.reshape(fLabels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
+    
+    #r1Imgs, r1Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
+    #r2Imgs, r2Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
+    #inverse_img, inverse_lab = data_aug.invert_colour(np.copy(imgs), np.copy(labels))
+    #flip_hor_img, flip_hor_lab = data_aug.flip_horizontal(np.copy(imgs), np.copy(labels))
+    #flip_ver_img, flip_ver_lab = data_aug.flip_vertical(np.copy(imgs), np.copy(labels))
+    
+    #imgs = np.concatenate((imgs, r1Imgs, r2Imgs, inverse_img, flip_hor_img, flip_ver_img), axis=0)
+    #labels = np.concatenate((labels, r1Labs, r2Labs, inverse_lab, flip_hor_lab, flip_ver_lab), axis=0)
+    print(imgs.shape)
+    print(labels.shape)
     print("label smoothed")
     print(labels[0])
     
@@ -216,7 +228,7 @@ def trainModel(unused_argv):
         p = pred["preds"]
         p = np.reshape(p, (int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
         preds.append(p)
-    preds = normalization.unNormalizeAll(np.array(preds))
+    #preds = normalization.unNormalizeAll(np.array(preds))
     boxes = process_boxes.getBoxes(preds)
     print("Box")
     print(boxes[1])

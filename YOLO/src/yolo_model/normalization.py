@@ -48,44 +48,5 @@ def unNormalizeAll(labels):
         normLabels.append(unNormalize(labels[i]))
     return normLabels
 
-reshapedLabels = np.zeros((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
-#reshapedPreds = np.random.uniform(0.0, 1.0, (3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
-reshapedPreds = np.zeros(((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4)))
 
-reshapedPreds[0][3][4][5]=1.0
-reshapedPreds[0][3][4][10]=0.3
-reshapedPreds[0][3][4][11]=0.5
-reshapedPreds[0][3][4][12]=0.4
-reshapedPreds[0][3][4][13]=0.7
-
-reshapedPreds[0][6][7][8]=1.0
-reshapedPreds[0][6][7][10]=0.4
-reshapedPreds[0][6][7][11]=0.5
-reshapedPreds[0][6][7][12]=0.7
-reshapedPreds[0][6][7][13]=0.8
-
-reshapedPreds[1][5][2][3]=1.0
-reshapedPreds[1][5][2][10]=0.4
-reshapedPreds[1][5][2][11]=0.2
-reshapedPreds[1][5][2][12]=0.2
-reshapedPreds[1][5][2][13]=0.4
-
-reshapedPreds[2][6][1][2]=1.0
-reshapedPreds[2][6][1][10]=0.8
-reshapedPreds[2][6][1][11]=0.3
-reshapedPreds[2][6][1][12]=0.3
-reshapedPreds[2][6][1][13]=0.6
-
-normed_preds = NormalizeWidthHeightForAll(reshapedPreds)
-normed_preds = np.reshape(normed_preds, (-1,8,8,14))
-print(normed_preds[0][3][4][10])
-print(normed_preds[0][3][4][11])
-print(normed_preds[0][3][4][12])
-print(normed_preds[0][3][4][13])
-unNormed = unNormalizeAll(normed_preds)
-unNormed = np.reshape(unNormed, (-1,8,8,14))
-print(unNormed[0][3][4][10])
-print(unNormed[0][3][4][11])
-print(unNormed[0][3][4][12])
-print(unNormed[0][3][4][13])
 

@@ -1,9 +1,10 @@
 import imageio
 import os
 import numpy as np
-from yolo_model import IMAGE_HEIGHT, IMAGE_WIDTH, B_BOX_SIDE, CLASSES, SINGULAR
+from yolo_model import IMAGE_HEIGHT, IMAGE_WIDTH, B_BOX_SIDE, CLASSES, SINGULAR#, CLASSES_RAW, SINGULAR_CONVERSION
 import scipy.misc
 from os.path import isfile, join
+from yolo_model import SINGULAR_CONVERSION, CLASSES_RAW
 
   
 def read_data():
@@ -34,7 +35,7 @@ def read_data():
     img_input = create_img_inputs(imgs)
     label_create = create_labels(dims, anns)
     
-    return img_input, dims, label_create
+    return np.array(img_input), np.array(dims), np.array(label_create)
         
         
 def parse_bound_box_tuple(tuple):
@@ -76,7 +77,7 @@ def create_img_inputs(imgs):
         img = imgs[i].astype(np.float32)
         img = scipy.misc.imresize(img, (IMAGE_HEIGHT, IMAGE_WIDTH, 3))
         #if (i == 0):
-         #   scipy.misc.imsave("something.png", img)
+        #   scipy.misc.imsave("something.png", img)
         img = img/255.0
         reshaped_imgs.append(img.flatten())
     return reshaped_imgs
@@ -110,9 +111,9 @@ def create_labels(dims, parsed_anns):
             lab_index = boxes_per_line*y_grid
             lab_index += x_grid
             
-            for k in range(0, len(CLASSES)):
+            for k in range(0, len(CLASSES_RAW)):
                 if SINGULAR[k] in b_box[0]:
-                    label[0, y_grid, x_grid, k] = 1.0
+                    label[0, y_grid, x_grid, SINGULAR_CONVERSION[k]] = 1.0
                     label[0, y_grid, x_grid, num_classes] = (b_box[1]%B_BOX_SIDE)/B_BOX_SIDE
                     label[0, y_grid, x_grid, num_classes+1] = (b_box[2]%B_BOX_SIDE)/B_BOX_SIDE
                     label[0, y_grid, x_grid, num_classes+2] = b_box[3]/IMAGE_WIDTH
@@ -122,9 +123,5 @@ def create_labels(dims, parsed_anns):
         labels = np.concatenate([labels, label], axis=0)
     
     return labels
-
-def convert_to_output(dims, preds):
-    pred_boxes = np.reshape(preds, (-1, 16, 16, len(CLASSES)+4))
-    print()
          
     
