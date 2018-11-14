@@ -8,21 +8,26 @@ num_classes = len(CLASSES)
 hit_thresh = 0.5
 IOU_thresh = 0.4
 
+#Convert predicates to bounding boxes
 def convertAllPredsToBoxes(preds):
     rPreds = np.reshape(preds, (-1, num_boxes_ver, num_boxes_hor, num_classes+4))
     
     boxes = []
+    #for each predicate
     for p in range(0, len(rPreds)):
         pred = rPreds[p]
         imgBoxes = []
+        #For each bounding box
         for i in range(0, num_boxes_ver):
             for j in range(0, num_boxes_hor):
                 c = -1
                 maxProb = 0.0
+                #Get the class with the highest probability for each box
                 for k in range(0, num_classes):
                     if pred[i][j][k]>maxProb:
                         maxProb=pred[i][j][k]
                         c=k
+                #If the probability of the class is higher than the threshold, create a bounding box.
                 if c>-1 and maxProb>=hit_thresh:
                     segmentY = i*B_BOX_SIDE
                     segmentX = j*B_BOX_SIDE
@@ -35,7 +40,7 @@ def convertAllPredsToBoxes(preds):
         boxes.append(imgBoxes)
     return boxes
 
-
+#Sort the bounding boxes by probability of detection. (Merge sort)
 def sortByProb(b_boxes):
     size = len(b_boxes)
     if (size==0 or size==1):
@@ -72,6 +77,7 @@ def sortByProb(b_boxes):
         
         return merged
 
+#Evaluate IOU 
 def evalIOU(box1, box2):
     x1 = box1[2]
     y1 = box1[3]
@@ -93,6 +99,7 @@ def evalIOU(box1, box2):
     y2min = y2-int(h2/2)
     y2max = y2+round(h2/2)
     
+    #Calculate overlap between line segments
     def overlap(max1, min1, max2, min2):
         top = - 1
         bottom = - 1
@@ -110,40 +117,42 @@ def evalIOU(box1, box2):
             return top-bottom
             
         return 0
-    
+    #Get vertical overlap
     ver_overlap = overlap(y1max, y1min, y2max, y2min)
+    #Get horizontal overlap
     hor_overlap = overlap(x1max, x1min, x2max, x2min)
-    
+    #Intersection of bounding boxes
     intersection = ver_overlap*hor_overlap
+    #Union of bounding boxes
     union = (y1max-y1min)*(x1max-x1min)+(y2max-y2min)*(x2max-x2min)-intersection
+    #Avoiding error just in case
     if union==0:
         return 0
     return intersection/union
 
+#Remove boxes that have high IOU scores
 def removeBoxes(b_boxes):
     k=0
     while k<len(b_boxes):
-        print("index "+str(k))
         box = b_boxes[k]
         remove_indices = []
         for j in range(k+1, len(b_boxes)):
             iou = evalIOU(box, b_boxes[j])
-            print(iou)
+            #Add to list of boxes to be removed
             if iou>IOU_thresh and not j in remove_indices:
-                print("remove "+str(j))
                 remove_indices.append(j)
-    
+        
+        #Remove all of the indicated boxes
         new_b_boxes = []
         for i in range(0, len(b_boxes)):
             if not i in remove_indices:
                 new_b_boxes.append(b_boxes[i])
-        print(new_b_boxes)
         b_boxes = new_b_boxes
         k=k+1
         
     return b_boxes
                 
-
+#Get predicted bounding boxes from raw predicates
 def getBoxes(preds):
     boxes = convertAllPredsToBoxes(preds)
     for i in range(0, len(boxes)):

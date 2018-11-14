@@ -89,7 +89,6 @@ def createModel(features, labels, mode):
     if mode == tf.estimator.ModeKeys.PREDICT :
         return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
     
-    #loss = tf.losses.mean_squared_error(labels=labels, predictions=preds)
     #How are the preds reshaped.
     reshapedPreds = tf.reshape(preds, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
     reshapedLabels = tf.reshape(labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
@@ -101,24 +100,27 @@ def createModel(features, labels, mode):
     mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
     num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
     
+    #Weights for the flags (probability of detection)
     flag_weights = tf.multiply(tf.ones([num_classes], dtype=tf.float32), tf.constant(1.0))
+    #Weights for the dimensions of image (x, y, width, height)
     dim_weights = tf.constant([1.0, 1.0, 1.0, 1.0])
-    
+    #Create weight mask to cancel out unwanted dimension units (x,y,w,h) in predicates
     weight_mask = tf.reshape(tf.concat([flag_weights, dim_weights], axis=0), shape=(1,1,1,num_classes+4))
-    
-    #print(reshapedPreds)
-    #print(weight_mask)
+
+    #Multiply square difference and apply mask.
     squared_diff = tf.multiply(tf.square(tf.subtract(reshapedPreds, reshapedLabels)), weight_mask)
-    #squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
+    #Apply mask to cancel out unwanted dimension units.
     masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
     masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
     shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
     
+    #Calculate the number of units that are being summed
     num_class_labels = tf.convert_to_tensor(tf.constant(batch*num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
     denominator = tf.add(num_terms, num_class_labels)
+    #Calculate loss
     loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
     
-    
+    #Train
     if mode == tf.estimator.ModeKeys.TRAIN:
         optimizer = tf.train.AdamOptimizer(learning_rate=0.001)
         train_op = optimizer.minimize(
@@ -126,6 +128,7 @@ def createModel(features, labels, mode):
             global_step=tf.train.get_global_step())
         return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)
     
+    #Evaluate
     if mode == tf.estimator.ModeKeys.EVAL:
         eval_metric_ops = {
             "accuracy": tf.metrics.accuracy(
@@ -144,6 +147,7 @@ def trainModel(unused_argv):
     imgs = []
     dims = []
     labels = []
+    #Create input if it doesn't exist already.
     if not Path('imgs.npy').is_file():
         print("Creating input")
         imgs, dims, labels = parser.read_data()
@@ -158,8 +162,6 @@ def trainModel(unused_argv):
         print()
     
     #labels = normalization.NormalizeWidthHeightForAll(labels)
-    print("unsmoothed label")
-    print(labels[0])
     #Add label smoothing so that the flags are between 0.1 and 0.9
     fLabels = np.reshape(labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
     flags = fLabels[:,:,:,0:num_classes]
@@ -169,37 +171,33 @@ def trainModel(unused_argv):
     
     labels = np.reshape(fLabels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
     
-    #r1Imgs, r1Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
-    #r2Imgs, r2Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
-    #inverse_img, inverse_lab = data_aug.invert_colour(np.copy(imgs), np.copy(labels))
-    #flip_hor_img, flip_hor_lab = data_aug.flip_horizontal(np.copy(imgs), np.copy(labels))
-    #flip_ver_img, flip_ver_lab = data_aug.flip_vertical(np.copy(imgs), np.copy(labels))
+    #Add data augmentations
+    r1Imgs, r1Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
+    r2Imgs, r2Labs = data_aug.rotate_colour(np.copy(imgs), np.copy(labels))
+    inverse_img, inverse_lab = data_aug.invert_colour(np.copy(imgs), np.copy(labels))
+    flip_hor_img, flip_hor_lab = data_aug.flip_horizontal(np.copy(imgs), np.copy(labels))
+    flip_ver_img, flip_ver_lab = data_aug.flip_vertical(np.copy(imgs), np.copy(labels))
     
-    #imgs = np.concatenate((imgs, r1Imgs, r2Imgs, inverse_img, flip_hor_img, flip_ver_img), axis=0)
-    #labels = np.concatenate((labels, r1Labs, r2Labs, inverse_lab, flip_hor_lab, flip_ver_lab), axis=0)
-    print(imgs.shape)
-    print(labels.shape)
-    print("label smoothed")
-    print(labels[0])
+    imgs = np.concatenate((imgs, r1Imgs, r2Imgs, inverse_img, flip_hor_img, flip_ver_img), axis=0)
+    labels = np.concatenate((labels, r1Labs, r2Labs, inverse_lab, flip_hor_lab, flip_ver_lab), axis=0)
     
     train_set_size = 5000
     eval_size = 200
+    #Train images and labels
     train_imgs = imgs[0:train_set_size]
     train_dims = dims[0:train_set_size]
     train_labels = labels[0:train_set_size]
     
+    #Test images and labels
     test_imgs = imgs[train_set_size:train_set_size+eval_size]
     test_dims = dims[train_set_size:train_set_size+eval_size]
     test_labels = labels[train_set_size:train_set_size+eval_size]
     
+    #Predictions
     pred_ind = train_set_size+eval_size
     pred_imgs = imgs[pred_ind:]
     pred_dims = dims[pred_ind:]
     pred_labels = labels[pred_ind:] 
-    
-    print(pred_imgs[0])
-    print(pred_dims[0])
-    print(pred_labels[0])
     
     tensors_to_log = {}
     logging_hook = tf.train.LoggingTensorHook(
@@ -210,7 +208,7 @@ def trainModel(unused_argv):
         batch_size=batch,
         num_epochs=200,
         shuffle=True)
-
+    #Train model
     current_model.train(input_fn=train_input_fn,steps=40000,hooks=[logging_hook])
     
     eval_input_fn = tf.estimator.inputs.numpy_input_fn(
@@ -230,6 +228,7 @@ def trainModel(unused_argv):
         preds.append(p)
     #preds = normalization.unNormalizeAll(np.array(preds))
     boxes = process_boxes.getBoxes(preds)
+    #Print out img # 5202 to 5211
     print("Box")
     print(boxes[1])
     print(boxes[2])
@@ -244,57 +243,4 @@ def trainModel(unused_argv):
         
 tf.logging.set_verbosity(tf.logging.INFO)
 tf.app.run(trainModel)
-
-reshapedLabels = np.zeros((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
-#reshapedPreds = np.random.uniform(0.0, 1.0, (3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4))
-reshapedPreds = np.zeros(((3, int(IMAGE_HEIGHT/B_BOX_SIDE), int(IMAGE_WIDTH/B_BOX_SIDE), num_classes+4)))
-
-reshapedLabels[0][3][4][5]=1.0
-reshapedLabels[0][3][4][10]=0.3
-reshapedLabels[0][3][4][11]=0.5
-reshapedLabels[0][3][4][12]=0.4
-reshapedLabels[0][3][4][13]=0.7
-
-reshapedLabels[0][6][7][8]=1.0
-reshapedLabels[0][6][7][10]=0.4
-reshapedLabels[0][6][7][11]=0.5
-reshapedLabels[0][6][7][12]=0.7
-reshapedLabels[0][6][7][13]=0.8
-
-reshapedLabels[1][5][2][3]=1.0
-reshapedLabels[1][5][2][10]=0.4
-reshapedLabels[1][5][2][11]=0.2
-reshapedLabels[1][5][2][12]=0.2
-reshapedLabels[1][5][2][13]=0.4
-
-reshapedLabels[2][6][1][2]=1.0
-reshapedLabels[2][6][1][10]=0.8
-reshapedLabels[2][6][1][11]=0.3
-reshapedLabels[2][6][1][12]=0.3
-reshapedLabels[2][6][1][13]=0.6
- 
-reshapedLabels = tf.convert_to_tensor(reshapedLabels, dtype=tf.float32)       
-reshapedPreds = tf.convert_to_tensor(reshapedPreds, dtype=tf.float32)
-
-mask_sub1 = tf.reduce_sum(input_tensor=reshapedLabels, axis=3, keepdims=True)
-
-mask_sub2 = tf.clip_by_value(t=mask_sub1, clip_value_max=tf.constant(1.0), clip_value_min=tf.constant(0.0))
-mask_sub3 = tf.ceil(mask_sub2)
-mask = tf.tile(mask_sub3[:, :, :, 0:1], [1, 1, 1, 4])
-num_terms = tf.reduce_sum(tf.reduce_sum(tf.reshape(mask, (-1, 4)), axis=1))
-
-squared_diff = tf.square(tf.subtract(reshapedPreds, reshapedLabels))
-masked_boxes = tf.multiply(squared_diff[:,:,:,num_classes:], mask)
-masked_labels = tf.concat((squared_diff[:,:,:,0:num_classes], masked_boxes), axis=3)
-shape_linear = tf.reshape(masked_labels, (-1, int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE)*(num_classes+4)))
-
-num_class_labels = tf.convert_to_tensor(tf.constant(3*num_classes*int(IMAGE_HEIGHT/B_BOX_SIDE)*int(IMAGE_WIDTH/B_BOX_SIDE), tf.float32))
-denominator = tf.add(num_terms, num_class_labels)
-loss = tf.divide(tf.reduce_sum(tf.reduce_sum(shape_linear)), denominator)
-
-with tf.Session() as sess:
-    n, t, l = sess.run([num_terms, denominator, loss])
-    #print(l)
-    #print(t)
-    #print(n)
         

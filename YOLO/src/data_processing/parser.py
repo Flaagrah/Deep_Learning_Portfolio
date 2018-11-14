@@ -6,7 +6,7 @@ import scipy.misc
 from os.path import isfile, join
 from yolo_model import SINGULAR_CONVERSION, CLASSES_RAW
 
-  
+#Read the data from the file
 def read_data():
     imgs_dir = '../data/images/'
     anns_dir = '../data/labels/'
@@ -26,6 +26,7 @@ def read_data():
         
         img = imageio.imread(img_dir)
         print(img.shape)
+        #Parse annotation
         ann = parse_annotation(ann_reader)
         
         dims.append(img.shape)
@@ -37,7 +38,7 @@ def read_data():
     
     return np.array(img_input), np.array(dims), np.array(label_create)
         
-        
+#Parse a coordinate tuple
 def parse_bound_box_tuple(tuple):
     skin = tuple[1:len(tuple)-1]
     comm_index = skin.index(",")
@@ -45,7 +46,7 @@ def parse_bound_box_tuple(tuple):
     y = skin[comm_index+2:]
     return int(x), int(y)
 
-#Parse one annotation
+#Parse one annotation to get the bounding boxes
 def parse_annotation(reader):
     objs = []
     for line in reader:
@@ -111,6 +112,7 @@ def create_labels(dims, parsed_anns):
             lab_index = boxes_per_line*y_grid
             lab_index += x_grid
             
+            #Map classes (eg, dog, cats, sheep, horses, are animals)
             for k in range(0, len(CLASSES_RAW)):
                 if SINGULAR[k] in b_box[0]:
                     label[0, y_grid, x_grid, SINGULAR_CONVERSION[k]] = 1.0
